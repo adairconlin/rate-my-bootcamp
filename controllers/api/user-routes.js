@@ -20,7 +20,7 @@ router.get("/:id", (req, res) => {
         where: {
             id: req.params.id
         }
-        //Include Feedback text/rating, include corresponding instructor/bootcamp name
+        //Include Feedback
     })
         .then(dbUserData => {
             if(!dbUserData) {
@@ -71,3 +71,5 @@ router.post("/login", (req, res) => {
 })
 
 //Add logout POST request
+
+module.exports = router;

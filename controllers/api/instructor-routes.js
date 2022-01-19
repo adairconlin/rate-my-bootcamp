@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Bootcamp, Feedback} = require("../../models");
+const { User, Bootcamp, Instructor, Feedback } = require("../../models");
 
 //GET all instructors /api/instructors
 router.get("/", (req, res) => {
@@ -20,7 +20,7 @@ router.get("/:id", (req, res) => {
         where: {
             id: req.params.id
         }
-        //Include Bootcamp name, Feedback rating and reviews
+        //Include Bootcamp, Feedback
     })
         .then(dbInstructorData => {
             if(!dbInstructorData) {
@@ -52,3 +52,24 @@ router.post("/", (req, res) => {
         });
 });
 
+//DELETE an instructor /api/instructors/1
+router.delete("/:id", (req, res) => {
+    Instructor.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbInstructorData => {
+            if(!dbInstructorData) {
+                res.status(404).json({ message: "No instructor found with that id." })
+                return;
+            }
+            res.json(dbInstructorData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+module.exports = router;

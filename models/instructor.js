@@ -1,8 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require("../config/connection");
 
-class Feedback extends Model {}
+class Instructor extends Model {}
 
-Feedback.init(
+Instructor.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -10,28 +11,22 @@ Feedback.init(
             primarykey: true,
             autoIncrement: true
         },
-        review_text: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        instructor_id: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        //foreignKey
         bootcamp_id: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        user_id: {
-            allowNull: false,
-
-        },
-        rating: {
             type: DataTypes.INTEGER,
             allowNull: false
-        },
+        }
     },
-    sequelize
+    {
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: "instructor"
+    }
 )
 
-module.exports = Feedback;
+module.exports = Instructor;

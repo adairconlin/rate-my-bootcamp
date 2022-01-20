@@ -1,21 +1,27 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const db = require('../db/schema.sql');
 
 class Bootcamp extends Model {}
 
 Bootcamp.init( 
     {
         id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
             primarykey: true,
-            autoIncrement: true,
+            autoIncrement: true
         },
         name: {
             type: DataTypes.STRING,
             allowNull: false
         }
     },
-    sequelize
+    {
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: "bootcamp"
+    }
 )
 
 module.exports = Bootcamp;

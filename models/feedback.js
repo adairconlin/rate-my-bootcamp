@@ -44,7 +44,10 @@ Feedback.init(
         },
         rating: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                max: 10
+            }
         },
     },
     {

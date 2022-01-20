@@ -1,0 +1,10 @@
+<div>
+    <h3>All Bootcamps</h3>
+</div>
+<ul class="instructor-list">
+    {{#each bootcamps as |bootcamp|}}
+    <li>
+        {{> bootcamp bootcamp}}
+    </li>
+    {{/each}}
+</ul>

@@ -1,0 +1,14 @@
+<div class="bootcamp-reviews">
+    {{#each reviews as |bootcamp-review|}}
+    |
+    {{> bootcamp-review bootcamp-review}}
+    |
+    {{/each}}
+</div>
+<div class="instructor-reviews">
+    {{#each reviews as |instructor-review|}}
+    |
+    {{> instructor-review instructor-review}}
+    |
+    {{/each}}
+</div>

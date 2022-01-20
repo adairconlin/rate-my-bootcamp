@@ -20,7 +20,7 @@ Instructor.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: Bootcamp,
+                model: "bootcamp",
                 key: "id"
             }
         }

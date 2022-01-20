@@ -20,7 +20,7 @@ Feedback.init(
             type: DataTypes.STRING,
             allowNull: true,
             references: {
-                model: Instructor,
+                model: "instructor",
                 key: "id"
             }
         },
@@ -29,7 +29,7 @@ Feedback.init(
             type: DataTypes.STRING,
             allowNull: true,
             references: {
-                model: Bootcamp,
+                model: "bootcamp",
                 key: "id"
             }
         },
@@ -37,7 +37,7 @@ Feedback.init(
         user_id: {
             allowNull: false,
             references: {
-                model: User,
+                model: "user",
                 key: "id"
             }
 

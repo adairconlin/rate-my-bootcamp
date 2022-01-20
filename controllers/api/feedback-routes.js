@@ -4,7 +4,7 @@ const { User, Instructor, Bootcamp, Feedback } = require("../../models")
 //GET all feedback /api/feedback
 router.get("/", (req, res) => {
     Feedback.findAll({
-        attributes: ["id", "review_text", "rating", , "user_id", "instructor_id", "bootcamp_id"]
+        attributes: ["id", "review_text", "rating", "user_id", "instructor_id", "bootcamp_id"]
     })
         .then(dbFeedbackData => res.json(dbFeedbackData))
         .catch(err => {

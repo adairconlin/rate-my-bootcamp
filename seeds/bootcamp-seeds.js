@@ -5,10 +5,10 @@ const bootcampData = [
         name: 'University of Minnesota Coding Bootcamp'
     },
     {
-        name: 'University of Madison Data Visualization'
+        name: 'University of Madison Data Visualization Bootcamp'
     },
     {
-        name: 'USC UX/UI'
+        name: 'USC UX/UI Bootcamp'
     },
     {
         name: 'Georgia Tech Python Bootcamp'

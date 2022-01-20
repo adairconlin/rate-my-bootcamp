@@ -18,7 +18,11 @@ Instructor.init(
         //foreignKey
         bootcamp_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            references: {
+                model: "bootcamp",
+                key: "id"
+            }
         }
     },
     {

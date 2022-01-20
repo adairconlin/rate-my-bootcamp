@@ -18,21 +18,36 @@ Feedback.init(
         //foreignKey
         instructor_id: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
+            references: {
+                model: "instructor",
+                key: "id"
+            }
         },
         //foreignKey
         bootcamp_id: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
+            references: {
+                model: "bootcamp",
+                key: "id"
+            }
         },
         //foreignKey
         user_id: {
             allowNull: false,
+            references: {
+                model: "user",
+                key: "id"
+            }
 
         },
         rating: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                max: 10
+            }
         },
     },
     {

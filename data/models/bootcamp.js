@@ -14,7 +14,8 @@ Bootcamp.init(
             type: DataTypes.STRING,
             allowNull: false
         }
-    }
+    },
+    sequelize
 )
 
 module.exports = Bootcamp;

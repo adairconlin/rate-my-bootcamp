@@ -30,7 +30,8 @@ Feedback.init(
             type: DataTypes.INTEGER,
             allowNull: false
         },
-    }
+    },
+    sequelize
 )
 
 module.exports = Feedback;

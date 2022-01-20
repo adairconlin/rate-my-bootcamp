@@ -18,7 +18,8 @@ Instructor.init(
             type: DataTypes.INTEGER,
             allowNull: false
         }
-    }
+    },
+    sequelize
 )
 
 module.exports = Instructor;

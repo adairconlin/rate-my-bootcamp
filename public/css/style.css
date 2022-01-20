@@ -1,0 +1,39 @@
+/*color scheme*/
+:root {
+    --hover-pink: #f052ff;
+    --main-purple: #af4ae8;
+    --accent-purple: #995fff;
+    --main-blue: #594ae8;
+    --accent-blue: #5270ff;
+};
+
+/*font styles*/
+/*<link rel="stylesheet" href="https://use.typekit.net/zts3cgs.css">*/
+.myFont {
+    font-family: neue-kabel, sans-serif;
+    font-style: normal;
+};
+
+.title {
+    font-size: 64px;
+    font-weight: 700;
+};
+
+.heading-1 {
+    font-size: 56px;
+    font-weight: 600;
+};
+
+.heading-2 {
+    font-size: 48px;
+    font-weight: 600;
+};
+
+.paragraph {
+    font-size: 36px;
+    font-weight: 400;
+};
+
+.shadow {
+    
+}

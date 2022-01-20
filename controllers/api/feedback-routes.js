@@ -16,11 +16,24 @@ router.get("/", (req, res) => {
 //GET all feedback about a single bootcamp /api/feedback/1
 router.get("/:bootcamp_id", (req, res) => {
     Feedback.findAll({
-        attributes: ["id", "review_text", "rating", , "user_id", "instructor_id", "bootcamp_id"],
+        attributes: ["id", "review_text", "rating"],
         where: {
             bootcamp_id: req.params.bootcamp_id
-        }
-        //Include Bootcamp, User, Instructor
+        },
+        include: [
+            {
+                model: Bootcamp,
+                attributes: ["id", "name"]
+            },
+            {
+                mode: Instructor,
+                attributes: ["id", "name"]
+            },
+            {
+                model: User,
+                attributes: ["id", "name"]
+            }
+        ]
     })
         .then(dbFeedbackData => {
             if(!dbFeedbackData) {

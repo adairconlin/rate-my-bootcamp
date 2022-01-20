@@ -19,8 +19,23 @@ router.get("/:id", (req, res) => {
         attributes: ["id", "username", "email", "password"],
         where: {
             id: req.params.id
-        }
-        //Include Feedback
+        },
+        include: [
+            {
+                model: Feedback,
+                attributes: ["id", "review_text", "rating"],
+                include: [
+                    {
+                        model: Bootcamp,
+                        attributes: ["name"]
+                    },
+                    {
+                        model: Instructor,
+                        attributes: ["name"]
+                    }
+                ]
+            }
+        ]        
     })
         .then(dbUserData => {
             if(!dbUserData) {

@@ -55,10 +55,7 @@ router.post("/", (req, res) => {
         //Change to req.session.bootcamp_id
         bootcamp_id: req.body.bootcamp_id
     })
-        .then(dbInstructorData => {
-            //Add req.session.save(() => {}) after adding sessions
-            res.json(dbInstructorData);
-        })
+        .then(dbInstructorData => res.json(dbInstructorData))
         .catch(err => {
             console.log(err);
             res.status(404).json(err);

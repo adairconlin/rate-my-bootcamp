@@ -2,6 +2,8 @@ const { Model, DataTypes } = require('sequelize');
 const { Sequelize } = require('../../../rate-my-bootcamp/config/connection');
 const db = require('../db/schema.sql');
 
+class Bootcamp extends Model {}
+
     const Bootcamp = db.define('bootcamp' {
         instructor: {
             id: {

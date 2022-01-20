@@ -1,5 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 
+class Instructor extends Model {}
+
 Instructor.init(
     {
         id: {

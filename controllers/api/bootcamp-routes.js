@@ -4,8 +4,7 @@ const { User, Bootcamp, Instructor, Feedback } = require("../../models");
 //GET all bootcamps /api/bootcamps
 router.get("/", (req, res) => {
     Bootcamp.findAll({
-        attributes: ["id", "name"],
-        //Add include Instructor, Feedback 
+        attributes: ["id", "name"], 
     })
         .then(dbBootcampData => res.json(dbBootcampData))
         .catch(err => {
@@ -20,8 +19,21 @@ router.get("/:id", (req, res) => {
         attributes: ["id", "name"],
         where: {
             id: req.params.id
-        }
-        //Add include Instructor, Feedback
+        },
+        include: [
+            {
+                model: Feedback,
+                attributes: ["id", "review_text", "rating"],
+                include: {
+                    model: User,
+                    attributes: ["id", "name"]
+                }
+            },
+            {
+                model: Instructor,
+                attributes: ["id", "name"]
+            }
+        ]
     })
     .then(dbBootcampData => {
         if(!dbBootcampData) {

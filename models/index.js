@@ -28,6 +28,14 @@ Feedback.belongsTo(Bootcamp, {
     foreignKey: "bootcamp_id"
 });
 
+Bootcamp.hasMany(Instructor, {
+    foreignKey: "bootcamp_id"
+});
+
+Instructor.belongsTo(Bootcamp, {
+    foreignKey: "bootcamp_id"
+});
+
 module.exports = {
   Bootcamp,
   Instructor,

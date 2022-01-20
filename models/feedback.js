@@ -17,7 +17,7 @@ Feedback.init(
         },
         //foreignKey
         instructor_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: true,
             references: {
                 model: "instructor",
@@ -26,7 +26,7 @@ Feedback.init(
         },
         //foreignKey
         bootcamp_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: true,
             references: {
                 model: "bootcamp",
@@ -35,6 +35,7 @@ Feedback.init(
         },
         //foreignKey
         user_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: "user",

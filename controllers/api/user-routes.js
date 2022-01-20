@@ -58,8 +58,13 @@ router.post("/", (req, res) => {
         password: req.body.password
     })
         .then(dbUserData => {
-            //Change to req.session.save(() => {}) after adding sessions
-            res.json(dbUserData);
+            req.session.save(() => {
+                req.session.user_id = dbUserData.id;
+                req.session.username = dbUserData.username;
+                req.session.loggedIn = true;
+                
+                res.json(dbUserData);
+            })
         })
         .catch(err => {
             console.log(err);
@@ -79,12 +84,30 @@ router.post("/login", (req, res) => {
                 res.status(400).json({ message: "No user found with that email address." });
                 return;
             }
-            //Add checkPassword() here
-            //Add req.session.save(() => {}) after adding sessions
-            res.json(dbUserData);
-        })
-})
+            const validPassword = dbUserData.checkPassword(req.body.password);
+            if(!validPassword) {
+                res.status(400).json({ message: "Incorrect password!" });
+                return;
+            }
+            req.session.save(() => {
+                req.session.user_id = dbUserData.id;
+                req.session.username = dbUserData.username;
+                req.session.loggedIn = true;
 
-//Add logout POST request
+                res.json({ user: dbUserData, message: "You are now logging in!" });
+            });
+        });
+});
+
+router.post("/logout", (req, res) => {
+    console.log(req.session.loggedIn);
+    if(req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
+});
 
 module.exports = router;

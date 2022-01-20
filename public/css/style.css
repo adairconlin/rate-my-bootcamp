@@ -8,7 +8,6 @@
 };
 
 /*font styles*/
-/*<link rel="stylesheet" href="https://use.typekit.net/zts3cgs.css">*/
 .myFont {
     font-family: neue-kabel, sans-serif;
     font-style: normal;
@@ -35,5 +34,5 @@
 };
 
 .shadow {
-    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

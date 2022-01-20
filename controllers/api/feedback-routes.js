@@ -51,11 +51,20 @@ router.get("/:bootcamp_id", (req, res) => {
 //GET all feedback about a single instructor /api/feedback/1
 router.get("/:instructor_id", (req, res) => {
     Feedback.findAll({
-        attributes: ["id", "review_text", "rating", , "user_id", "instructor_id", "bootcamp_id"],
+        attributes: ["id", "review_text", "rating"],
         where: {
             instructor_id: req.params.instructor_id
-        }
-        //Include Bootcamp, User, Instructor
+        },
+        include: [
+            {
+                mode: Instructor,
+                attributes: ["id", "name"]
+            },
+            {
+                model: User,
+                attributes: ["id", "name"]
+            }
+        ]
     })
         .then(dbFeedbackData => {
             if(!dbFeedbackData) {
@@ -73,11 +82,20 @@ router.get("/:instructor_id", (req, res) => {
 //GET all feedback from a single user /api/feedback/1
 router.get("/:user_id", (req, res) => {
     Feedback.findAll({
-        attributes: ["id", "review_text", "rating", , "user_id", "instructor_id", "bootcamp_id"],
+        attributes: ["id", "review_text", "rating"],
         where: {
             user_id: req.params.user_id
-        }
-        //Include Bootcamp, User, Instructor
+        },
+        include: [
+            {
+                mode: Bootcamp,
+                attributes: ["id", "name"]
+            },
+            {
+                model: User,
+                attributes: ["id", "name"]
+            }
+        ]
     })
         .then(dbFeedbackData => {
             if(!dbFeedbackData) {
@@ -102,10 +120,7 @@ router.post("/", (req, res) => {
         instructor_id: req.body.instructor_id,
         bootcamp_id: req.body.bootcamp_id
     })
-        .then(dbFeedbackData => {
-            //Change to req.session.save(() => {}) after adding sessions
-            res.json(dbFeedbackData);
-        })
+        .then(dbFeedbackData => res.json(dbFeedbackData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

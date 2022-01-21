@@ -1,8 +1,8 @@
 // imports models
-const Bootcamp = require('./Bootcamp');
-const Instructor = require('./Instructor');
-const Feedback = require('./Feedback');
-const User = require('./User');
+const Bootcamp = require('./bootcamp');
+const Instructor = require('./instructor');
+const Feedback = require('./feedback');
+const User = require('./user');
 
 User.hasMany(Feedback, {
     foreignKey: "user_id"

@@ -1,0 +1,12 @@
+<div class="feedback">
+    {{#if instructor_id}}
+    <p>{{instructor.name}}</p>
+    {{#else}}
+    <p>{{bootcamp.name}}</p>
+    {{/if}}
+    <p>Rating: {{rating}}/10</p>
+    {{#if review_text}}
+    <p>{{review_text}}</p>
+    {{/if}}
+    <button type="submit">Edit Review</button>
+</div>

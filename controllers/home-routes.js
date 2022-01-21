@@ -3,11 +3,16 @@ const sequelize = require("../config/connection");
 const { User, Bootcamp, Instructor, Feedback } = require("../models");
 
 router.get("/", (req, res) => {
-
+    // revisit this later
+    // may want to include the top bootcamps and top instructors on homepage
 });
 
 router.get("/login", (req, res) => {
-
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
 });
 
 router.get("/bootcamps", (req, res) => {
@@ -77,7 +82,35 @@ router.get("/instructors", (req, res) => {
 });
 
 router.get("/instructor/:id", (req, res) => {
+    Instructor.findOne({
+        attributes: ["id", "name", "bootcamp_id"],
+        where: {
+            id: req.params.id
+        },
+        include: [
+            {
+                model: Bootcamp,
+                attributes: ["id", "name"]
+            },
+            {
+                model: Feedback,
+                attributes: ["review_text", "rating"],
+                include: {
+                    model: User,
+                    attributes: ["id", "username"]
+                }
+            }
+        ]
+    })
+    .then(dbInstructorData => {
+        const instructor = dbInstructorData.get({ plain:true });
 
+        res.render('single-instructor', {instructor, loggedIn: req.session.loggedIn });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 module.exports = router;

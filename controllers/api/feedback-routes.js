@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Instructor, Bootcamp, Feedback } = require("../../models")
+const { User, Instructor, Bootcamp, Feedback } = require("../../models");
 
 //GET all feedback /api/feedback
 router.get("/", (req, res) => {
@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 });
 
 //GET all feedback about a single bootcamp /api/feedback/1
-router.get("/:bootcamp_id", (req, res) => {
+router.get("/bootcamp/:bootcamp_id", (req, res) => {
     Feedback.findAll({
         attributes: ["id", "review_text", "rating"],
         where: {
@@ -26,12 +26,12 @@ router.get("/:bootcamp_id", (req, res) => {
                 attributes: ["id", "name"]
             },
             {
-                mode: Instructor,
+                model: Instructor,
                 attributes: ["id", "name"]
             },
             {
                 model: User,
-                attributes: ["id", "name"]
+                attributes: ["id", "username"]
             }
         ]
     })
@@ -49,7 +49,7 @@ router.get("/:bootcamp_id", (req, res) => {
 });
 
 //GET all feedback about a single instructor /api/feedback/1
-router.get("/:instructor_id", (req, res) => {
+router.get("/instructor/:instructor_id", (req, res) => {
     Feedback.findAll({
         attributes: ["id", "review_text", "rating"],
         where: {
@@ -57,12 +57,12 @@ router.get("/:instructor_id", (req, res) => {
         },
         include: [
             {
-                mode: Instructor,
+                model: Instructor,
                 attributes: ["id", "name"]
             },
             {
                 model: User,
-                attributes: ["id", "name"]
+                attributes: ["id", "username"]
             }
         ]
     })
@@ -80,7 +80,7 @@ router.get("/:instructor_id", (req, res) => {
 });
 
 //GET all feedback from a single user /api/feedback/1
-router.get("/:user_id", (req, res) => {
+router.get("/user/:user_id", (req, res) => {
     Feedback.findAll({
         attributes: ["id", "review_text", "rating"],
         where: {
@@ -88,12 +88,12 @@ router.get("/:user_id", (req, res) => {
         },
         include: [
             {
-                mode: Bootcamp,
+                model: Bootcamp,
                 attributes: ["id", "name"]
             },
             {
                 model: User,
-                attributes: ["id", "name"]
+                attributes: ["id", "username"]
             }
         ]
     })

@@ -5,6 +5,7 @@ const { User, Bootcamp, Instructor, Feedback } = require("../models");
 router.get("/", (req, res) => {
     // revisit this later
     // may want to include the top bootcamps and top instructors on homepage
+    res.render('homepage');
 });
 
 router.get("/login", (req, res) => {

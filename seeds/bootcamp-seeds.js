@@ -18,6 +18,6 @@ const bootcampData = [
     }
 ];
 
-const seedBootcamps = () => Bootcamp.bulkcreate(bootcampData);
+const seedBootcamps = () => Bootcamp.bulkCreate(bootcampData);
 
 module.exports = seedBootcamps;

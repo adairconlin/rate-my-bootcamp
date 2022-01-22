@@ -1,11 +1,75 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { User, Bootcamp, Instructor, Feedback } = require("../models");
+const { Op } = require("sequelize");
 
 router.get("/", (req, res) => {
     // revisit this later
     // may want to include the top bootcamps and top instructors on homepage
-    res.render('homepage');
+    Feedback.findAll({
+        where: {
+            rating: {
+                [Op.gt]: 5
+            }
+        },
+        attributes: ["id", "rating", "bootcamp_id", "instructor_id"],
+        include: [
+            {
+                model: Bootcamp,
+                attributes: ["id", "name"]
+            },
+            {
+                model: Instructor,
+                attributes: ["id", "name", "bootcamp_id"]
+            }
+        ]
+    })
+    .then(dbFeedbackData => {
+        const topBootcamps = dbFeedbackData.filter(bootcamp => {
+            if (bootcamp.bootcamp_id !== null && bootcamp.instructor_id === null) {
+                return true;
+            }
+            else{
+                return false;
+            }
+            })
+            .map(bootcamp => bootcamp.get({ plain: true }))
+            .sort((a, b) => b.rating - a.rating);
+        //.map(bootcamp => bootcamp.get({ plain: true }));
+        // want to have the highest rated bootcamps appear at the top of the list
+        //topBootcamps.sort((a, b) => b.rating - a.rating);
+        const topInstructors = dbFeedbackData.filter(instructor => {
+            if (instructor.bootcamp_id === null && instructor.instructor_id !== null) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        })
+        .map(instructor => instructor.get({ plain: true }))
+        .sort((a, b) => b.rating - a.rating);
+
+        if (topBootcamps.length <= 10 && topInstructors.length <= 10) {
+            res.render('homepage', { topBootcamps, topInstructors, loggedIn: req.session.loggedIn });
+        }
+        else if (topBootcamps.length > 10 && topInstructors <= 10) {
+            topBootcamps = topBootcamps.slice(0,10);
+            res.render('homepage', { topBootcamps, topInstructors, loggedIn: req.session.loggedIn });
+        }
+        else if (topBootcamps.length <= 10 && topInstructors.length > 10) {
+            topInstructors = topInstructors.slice(0,10);
+            res.render('homepage', { topBootcamps, topInstructors, loggedIn: req.session.loggedIn });
+        }
+        else {
+            topBootcamps = topBootcamps.slice(0,10);
+            topInstructors = topInstructors.slice(0,10);
+            res.render('homepage', { topBootcamps, topInstructors, loggedIn: req.session.loggedIn });
+        }
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 router.get("/login", (req, res) => {

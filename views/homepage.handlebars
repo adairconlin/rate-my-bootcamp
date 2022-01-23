@@ -1,4 +1,4 @@
-<div class="bootcamp-reviews">
+{{!-- <div class="bootcamp-reviews">
     {{#each reviews as |bootcamp-review|}}
     |
     {{> bootcamp-review bootcamp-review}}
@@ -11,4 +11,27 @@
     {{> instructor-review instructor-review}}
     |
     {{/each}}
-</div>
+</div> --}}
+
+<h3>Top Bootcamps</h3>
+<ol>
+    {{#each topBootcamps}}
+    {{#if bootcamp_id}}
+    <li>
+        <p>{{"bootcamp.name"}} - Avg Rating: {{avg_camp_rating}}/10</p>
+    </li>
+    {{/if}}
+    {{/each}}
+</ol>
+
+<h3>Top Instructors</h3>
+<ol>
+    {{#each topInstructors}}
+    {{#if instructor_id}}
+    <li>
+        <p>{{"instructor.name"}} - Avg Rating: {{avg_instructor_rating}}/10</p>
+        <p>{{"instructor.bootcamp.name"}}</p>
+    </li>
+    {{/if}}
+    {{/each}}
+</ol>

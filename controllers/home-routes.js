@@ -3,9 +3,87 @@ const sequelize = require("../config/connection");
 const { User, Bootcamp, Instructor, Feedback } = require("../models");
 
 router.get("/", (req, res) => {
-    // revisit this later
-    // may want to include the top bootcamps and top instructors on homepage
-    res.render('homepage');
+    Feedback.findAll({
+        attributes: ["id", "bootcamp_id", [sequelize.cast(sequelize.fn('AVG', sequelize.col('rating')), 'dec(2,1)'), 'avg_camp_rating']],
+        include: [
+            {
+                model:Bootcamp,
+                attributes: ["id", "name"]
+            }
+        ],
+        raw: true,
+        group: ['Bootcamp.name'],
+        order: sequelize.literal(`avg(rating) DESC`)
+    })
+    .then(dbFeedbackData => {
+        if (dbFeedbackData) {
+            setArrays(dbFeedbackData, 1);
+        }
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+
+    Feedback.findAll({
+        attributes: ["Feedback.id", "Feedback.instructor_id", [sequelize.cast(sequelize.fn('AVG', sequelize.col('rating')), 'dec(2,1)'), 'avg_instructor_rating']],
+        include: [
+            {
+                model: Instructor,
+                attributes: ["id", "name", "bootcamp_id"],
+                include: [
+                    {
+                        model: Bootcamp,
+                        attributes: ["id", "name"]
+                    }
+                ]
+            }
+        ],
+        raw: true,
+        group: ['Instructor.name'],
+        order: sequelize.literal(`avg(rating) DESC`)
+    })
+    .then(dbFeedbackData => {
+        setArrays(dbFeedbackData, 2);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+
+    let topBootcamps = [];
+    let topInstructors = [];
+    // filter the array data before rendering to the client
+    const setArrays = (arr, counter) => {
+        // rare situation where no data is found by the instructor feedback query
+        if (arr.length === 0 && counter == 2) {
+            res.render('homepage', { topBootcamps, topInstructors, loggedIn: req.session.loggedIn });
+        }
+        else if (arr[0].bootcamp_id) {
+            topBootcamps = arr.filter(bootcamp => {
+                if (bootcamp.avg_camp_rating >= 7) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            });
+        }
+        else {
+            topInstructors = arr.filter(instructor => {
+                if (instructor.avg_instructor_rating >= 7) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            });
+        }
+        // tracker to ensure both query results were passed to this function and rendering can happen
+        if (counter === 2) {
+            res.render('homepage', { topBootcamps, topInstructors, loggedIn: req.session.loggedIn });
+        }
+    };
 });
 
 router.get("/login", (req, res) => {

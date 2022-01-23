@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Bootcamp, Instructor, Feedback } = require("../../models");
+const withAuth = require('../../utils/auth');
 
 //GET all bootcamps /api/bootcamps
 router.get("/", (req, res) => {
@@ -49,7 +50,7 @@ router.get("/:id", (req, res) => {
 });
 
 //POST create a bootcamp /api/bootcamps
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
     Bootcamp.create({
         name: req.body.name
     })
@@ -61,7 +62,7 @@ router.post("/", (req, res) => {
 });
 
 //DELETE a bootcamp /api/bootcamps/1
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
     Bootcamp.destroy({
         where: {
             id: req.params.id

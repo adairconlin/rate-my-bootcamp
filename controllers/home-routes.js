@@ -151,7 +151,11 @@ router.get("/bootcamp/:id", (req, res) => {
 
 router.get("/instructors", (req, res) => {
     Instructor.findAll({
-        attributes: ["id", "name", "bootcamp_id"]
+        attributes: ["id", "name", "bootcamp_id"],
+        include: {
+            model: Feedback,
+            attributes: ["id", "rating", "instructor_id"]
+        }
     })
     .then(dbInstructorData => {
         const instructors = dbInstructorData.map(instructor => instructor.get({ plain: true }));

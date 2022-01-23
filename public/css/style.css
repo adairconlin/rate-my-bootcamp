@@ -180,3 +180,37 @@ main {
 .top-ten article li a:hover {
     color: var(--hover-pink);
 }
+
+/* LOGIN PAGE */
+.login-section {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5vw;
+    margin-bottom: 6vw;
+}
+
+.login-form, .signup-form {
+    background-color: white;
+    border-radius: 10px;
+    width: 38%;
+    padding: 2vw 3.3vw;
+}
+
+.login-form div, .signup-form div {
+    margin-top: 2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form input, .signup-form input {
+    border: 3px solid var(--main-blue);
+    border-radius: 10px;
+    padding: 3px 10px;
+}
+.login-form button, .signup-form button {
+    background-color: var(--accent-purple);
+    width: 80%;
+    border-radius: 10px;
+    padding: 10px 20px;
+    align-self: center;
+}

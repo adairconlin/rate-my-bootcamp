@@ -1,52 +1,51 @@
-{{!-- <div class="bootcamp-reviews">
-    {{#each reviews as |bootcamp-review|}}
-    |
-    {{> bootcamp-review bootcamp-review}}
-    |
-    {{/each}}
-</div>
-<div class="instructor-reviews">
-    {{#each reviews as |instructor-review|}}
-    |
-    {{> instructor-review instructor-review}}
-    |
-    {{/each}}
-</div> --}}
-<div>
-    <a href="/bootcamps">
-        <button >View All Bootcamps</button>
-    </a>
-    <a href="/instructors">
-        <button>View All Instructors</button>
-    </a>
-</div>
+<section class="hero-section">
+    <article class="overlay">
+        <div class="shadow">
+            <h1 class="white heading-1">Your Resource for Informed Reviews</h1>
+            <article class="hero-btn-div">
+                <a href="/bootcamps">
+                    <button class="heading-2 shadow main-b">View All<br>Bootcamps</button>
+                </a>
+                <a href="/instructors">
+                    <button class="heading-2 shadow main-b">View All<br>Instructors</button>
+                </a>
+            </article>
+        </div>
+    </article>
+</section>
 
-<h3>Top Bootcamps</h3>
-<ol>
-    {{#each topBootcamps}}
-    {{#if bootcamp_id}}
-    <li>
-        <a href="/bootcamp/{{id}}">
-            <p>{{"bootcamp.name"}} - Avg Rating: {{avg_camp_rating}}/10</p>
-        </a>
-    </li>
-    {{/if}}
-    {{/each}}
-</ol>
+<section class="top-ten">
+    <article>
+        <h3>Top Bootcamps</h3>
+        <ol>
+            {{#each topBootcamps}}
+            {{#if bootcamp_id}}
+            <li>
+                <a href="/bootcamp/{{id}}">
+                    <p>{{"bootcamp.name"}} - Avg Rating: {{avg_camp_rating}}/10</p>
+                </a>
+            </li>
+            {{/if}}
+            {{/each}}
+        </ol>
+    </article>
 
-<h3>Top Instructors</h3>
-<ol>
-    {{#each topInstructors}}
-    {{#if instructor_id}}
-    <li>
-        <a href="instructor/{{id}}">
-            <p>{{"instructor.name"}} - Avg Rating: {{avg_instructor_rating}}/10</p>
-        </a>
-        <p>{{"instructor.bootcamp.name"}}</p>
-    </li>
-    {{/if}}
-    {{/each}}
-</ol>
+    <article>
+        <h3>Top Instructors</h3>
+        <ol>
+            {{#each topInstructors}}
+            {{#if instructor_id}}
+            <li>
+                <a href="instructor/{{id}}">
+                    <p>{{"instructor.name"}} - Avg Rating: {{avg_instructor_rating}}/10</p>
+                </a>
+                <p>{{"instructor.bootcamp.name"}}</p>
+            </li>
+            {{/if}}
+            {{/each}}
+        </ol>
+    </article>
+</section>
 
 {{#if loggedIn}}
 <script src="/javascript/logout.js"></script>

@@ -1,38 +1,149 @@
-/*color scheme*/
+/* COLOR SCHEME */
 :root {
     --hover-pink: #f052ff;
     --main-purple: #af4ae8;
     --accent-purple: #995fff;
     --main-blue: #594ae8;
     --accent-blue: #5270ff;
-};
+}
 
-/*font styles*/
-.myFont {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     font-family: neue-kabel, sans-serif;
     font-style: normal;
-};
+}
 
+/* FONT STYLES */
 .title {
-    font-size: 64px;
+    font-size: 4.1vw;
     font-weight: 700;
-};
+}
 
 .heading-1 {
-    font-size: 56px;
+    font-size: 3.645vw;
     font-weight: 600;
-};
+}
 
 .heading-2 {
-    font-size: 48px;
+    font-size: 3.125vw;
     font-weight: 600;
-};
+}
 
 .paragraph {
-    font-size: 36px;
+    font-size: 2.3vw;
     font-weight: 400;
-};
+}
+
+/* COLORS */
+.main-b {
+    color: var(--main-blue);
+}
+
+.main-p {
+    color: var(--main-purple)
+}
+
+.accent-p {
+    color: var(--accent-purple)
+}
+
+.accent-b {
+    color: var(--accent-blue)
+}
+
+.white {
+    color: white;
+}
 
 .shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* GENERAL STYLING */
+
+
+body {
+    background-image: linear-gradient(180deg, var(--main-blue), var(--main-purple));
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+button {
+    border: none;
+    transition: .5s ease;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    background-color: white;
+    display: flex;
+    padding: 20px 100px;
+}
+
+header a {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+header nav {
+    align-self: center;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+footer {
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* HOMEPAGE */
+
+.hero-section {
+    position: sticky;
+    background-image: url("/imgs/hero-img.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    z-index: -1;
+}
+
+.overlay {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.overlay div {
+    width: 70%;
+    background-image: linear-gradient(120deg, var(--main-blue), var(--main-purple));
+    border-radius: 10px;
+    padding: 50px 20px;
+    text-align: center;
+    margin: 6vw 4vw;
+}
+
+.hero-btn-div {
+    display: flex;
+    justify-content: space-around;
+    margin: 3vw 5vw;
+}
+
+.hero-btn-div a button {
+    background-color: white;
+    padding: 50px 60px;
+    border-radius: 10px;
+}
+
+.hero-btn-div a button:hover {
+    color: var(--hover-pink);
 }

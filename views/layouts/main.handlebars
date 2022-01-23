@@ -6,29 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rate my Bootcamp</title>
     <link rel="stylesheet" href="https://use.typekit.net/zts3cgs.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="wrapper">
-        <header>
-            <h1>
-                <a href="/">Rate My Bootcamp</a>
-            </h1>
-            <nav>
-                {{#if loggedIn}}
-                <a href="/dashboard">Dashboard</a>
-                <button class="btn-logout" id="logout">Logout</button>
-                {{else}}
-                <a href="/login">Login</a>
-                {{/if}}
-            </nav>
-        </header>
-        <main>
-            {{{ body }}}
-        </main>
-        <footer>
-            <h4>&copy Sophia, Adair and Max 2022</h4>
-            <h4>Rate Again Soon!</h4>
-        </footer>
-    </div>
+    <header class="shadow">
+        <a href="/">
+            <h1 class="title main-b">Rate My Bootcamp</h1>
+        </a>
+        <nav class="paragraph">
+            {{#if loggedIn}}
+            <a href="/dashboard" class="main-b">Dashboard</a>
+            <button class="btn-logout main-b" id="logout">Logout</button>
+            {{else}}
+            <a href="/login" class="main-b">Login</a>
+            {{/if}}
+        </nav>
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
+    <footer class="paragraph white">
+        <h4>&copy Sophia, Adair and Max 2022</h4>
+        <h4>Rate Again Soon!</h4>
+    </footer>
 </body>
 </html>

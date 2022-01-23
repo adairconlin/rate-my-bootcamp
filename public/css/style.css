@@ -107,6 +107,9 @@ footer {
 }
 
 /* HOMEPAGE */
+main {
+    z-index: -1;
+}
 
 .hero-section {
     position: sticky;
@@ -114,7 +117,6 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    z-index: -1;
 }
 
 .overlay {
@@ -138,12 +140,12 @@ footer {
     margin: 3vw 5vw;
 }
 
-.hero-btn-div a button {
+.hero-btn-div button {
     background-color: white;
     padding: 50px 60px;
     border-radius: 10px;
 }
 
-.hero-btn-div a button:hover {
+.hero-btn-div button:hover {
     color: var(--hover-pink);
 }

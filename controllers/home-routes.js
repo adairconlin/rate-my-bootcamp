@@ -6,7 +6,7 @@ const { Op } = require("sequelize");
 router.get("/", (req, res) => {
     // revisit this later
     // may want to include the top bootcamps and top instructors on homepage
-    Feedback.findAll({
+/*     Feedback.findAll({
         where: {
             rating: {
                 [Op.gt]: 5
@@ -34,10 +34,9 @@ router.get("/", (req, res) => {
             }
             })
             .map(bootcamp => bootcamp.get({ plain: true }))
+            // want to have the highest rated bootcamps appear at the top of the list
             .sort((a, b) => b.rating - a.rating);
-        //.map(bootcamp => bootcamp.get({ plain: true }));
-        // want to have the highest rated bootcamps appear at the top of the list
-        //topBootcamps.sort((a, b) => b.rating - a.rating);
+
         const topInstructors = dbFeedbackData.filter(instructor => {
             if (instructor.bootcamp_id === null && instructor.instructor_id !== null) {
                 return true;
@@ -69,7 +68,65 @@ router.get("/", (req, res) => {
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
+    }); */
+
+    Feedback.findAll({
+        attributes: ["id", "bootcamp_id", [sequelize.fn('AVG', sequelize.col('rating')), 'avg_camp_rating']],
+        include: [
+            {
+                model:Bootcamp,
+                attributes: ["id", "name"]
+            }
+        ],
+        raw: true,
+        group: ['Bootcamp.name'],
+        order: sequelize.literal(`avg(rating) DESC`)
+    })
+    .then(dbFeedbackData => {
+        if (dbFeedbackData) {
+            setArrays(dbFeedbackData, 1);
+        }
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     });
+
+    Feedback.findAll({
+        attributes: ["id", "instructor_id", [sequelize.fn('AVG', sequelize.col('rating')), 'avg_instructor_rating']],
+        include: [
+            {
+                model: Instructor,
+                attributes: ["id", "name"]
+            }
+        ],
+        raw: true,
+        group: ['Instructor.name'],
+        order: sequelize.literal(`avg(rating) DESC`)
+    })
+    .then(dbFeedbackData => {
+        if (dbFeedbackData) {
+            setArrays(dbFeedbackData, 2);
+        }
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+
+    let topBootcamps = [];
+    let topInstructors = [];
+    const setArrays = (arr, counter) => {
+        if (arr[0].bootcamp_id) {
+            topBootcamps = arr;
+        }
+        else {
+            topInstructors = arr;
+        }
+        if (counter === 2) {
+            res.render('homepage', { topBootcamps, topInstructors, loggedIn: req.session.loggedIn });
+        }
+    };
 });
 
 router.get("/login", (req, res) => {

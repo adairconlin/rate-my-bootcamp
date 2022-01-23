@@ -97,11 +97,15 @@ router.get("/login", (req, res) => {
 router.get("/bootcamps", (req, res) => {
     Bootcamp.findAll({
         attributes: ["id", "name"],
+        include: {
+            model: Feedback,
+            attributes: ["bootcamp_id", "rating"]
+        }
     })
     .then(dbBootcampData => {
         const bootcamps = dbBootcampData.map(bootcamp => bootcamp.get({ plain: true }));
 
-        res.render('bootcamps', { bootcamps, loggedIn: req.session.loggedIn });
+        res.render('all-bootcamps', { bootcamps, loggedIn: req.session.loggedIn });
     })
     .catch(err => {
         console.log(err);
@@ -152,7 +156,7 @@ router.get("/instructors", (req, res) => {
     .then(dbInstructorData => {
         const instructors = dbInstructorData.map(instructor => instructor.get({ plain: true }));
 
-        res.render('instructors', { instructors, loggedIn: req.session.loggedIn });
+        res.render('all-instructors', { instructors, loggedIn: req.session.loggedIn });
     })
     .catch(err => {
         console.log(err);

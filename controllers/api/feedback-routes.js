@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Instructor, Bootcamp, Feedback } = require("../../models");
+const withAuth = require('../../utils/auth');
 
 //GET all feedback /api/feedback
 router.get("/", (req, res) => {
@@ -111,7 +112,7 @@ router.get("/user/:user_id", (req, res) => {
 });
 
 //POST create feedback /api/feedback
-router.post("/", (req, res) => {
+router.post("/", withAuth, (req, res) => {
     Feedback.create({
         review_text: req.body.review_text,
         rating: req.body.rating,
@@ -128,7 +129,7 @@ router.post("/", (req, res) => {
 });
 
 //PUT update feedback /api/feedback/1
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
     Feedback.update(
         {
             review_text: req.body.review_text,
@@ -154,7 +155,7 @@ router.put("/:id", (req, res) => {
 });
 
 //DELETE feedback /api/feedback/1
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
     Feedback.destroy({
         where: {
             id: req.params.id

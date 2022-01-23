@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { User, Bootcamp, Instructor, Feedback } = require("../models");
+const withAuth = require('../utils/auth');
 
 //Dashboard page /dashboard/
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
     // get the feedback reviews for logged in user
     Feedback.findAll({
         where: {
@@ -32,7 +33,7 @@ router.get("/", (req, res) => {
 });
 
 //Edit feedback page /dashboard/edit/:id
-router.get("/edit/:id", (req, res) => {
+router.get("/edit/:id", withAuth, (req, res) => {
     // get the feedback with the id provided
     Feedback.findByPk(req.params.id, {
         attributes: ["id", "review_text", "rating", "created_at"],

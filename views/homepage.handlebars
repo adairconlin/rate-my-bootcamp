@@ -12,13 +12,23 @@
     |
     {{/each}}
 </div> --}}
+<div>
+    <a href="/bootcamps">
+        <button >View All Bootcamps</button>
+    </a>
+    <a href="/instructors">
+        <button>View All Instructors</button>
+    </a>
+</div>
 
 <h3>Top Bootcamps</h3>
 <ol>
     {{#each topBootcamps}}
     {{#if bootcamp_id}}
     <li>
-        <p>{{"bootcamp.name"}} - Avg Rating: {{avg_camp_rating}}/10</p>
+        <a href="/bootcamp/{{id}}">
+            <p>{{"bootcamp.name"}} - Avg Rating: {{avg_camp_rating}}/10</p>
+        </a>
     </li>
     {{/if}}
     {{/each}}
@@ -29,9 +39,15 @@
     {{#each topInstructors}}
     {{#if instructor_id}}
     <li>
-        <p>{{"instructor.name"}} - Avg Rating: {{avg_instructor_rating}}/10</p>
+        <a href="instructor/{{id}}">
+            <p>{{"instructor.name"}} - Avg Rating: {{avg_instructor_rating}}/10</p>
+        </a>
         <p>{{"instructor.bootcamp.name"}}</p>
     </li>
     {{/if}}
     {{/each}}
 </ol>
+
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}

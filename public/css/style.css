@@ -27,7 +27,7 @@
 }
 
 .heading-2 {
-    font-size: 3.125vw;
+    font-size: 3vw;
     font-weight: 600;
 }
 
@@ -147,5 +147,36 @@ main {
 }
 
 .hero-btn-div button:hover {
+    color: var(--hover-pink);
+}
+
+.top-ten {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.top-ten article {
+    background-color: white;
+    width: 35%;
+    border-radius: 10px;
+    padding: 2vw 3vw;
+    margin-top: 5vw;
+    margin-bottom: 8vw;
+}
+
+.top-ten article ol {
+    margin-top: 25px;
+    margin-left: 30px;
+}
+
+.top-ten article li, .top-ten article li a {
+    color: var(--main-blue);
+    font-size: 1.5vw;
+    font-weight: 400;
+    margin-bottom: 20px;
+    transition: .5s ease;
+}
+
+.top-ten article li a:hover {
     color: var(--hover-pink);
 }

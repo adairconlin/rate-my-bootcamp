@@ -15,14 +15,14 @@
 </section>
 
 <section class="top-ten">
-    <article>
-        <h3>Top Bootcamps</h3>
+    <article class="shadow">
+        <h3 class="main-b heading-2">Top Bootcamps</h3>
         <ol>
             {{#each topBootcamps}}
             {{#if bootcamp_id}}
             <li>
                 <a href="/bootcamp/{{id}}">
-                    <p>{{"bootcamp.name"}} - Avg Rating: {{avg_camp_rating}}/10</p>
+                    <p>{{"bootcamp.name"}} - <span class="accent-b">Avg Rating: {{avg_camp_rating}}/10</span></p>
                 </a>
             </li>
             {{/if}}
@@ -30,14 +30,14 @@
         </ol>
     </article>
 
-    <article>
-        <h3>Top Instructors</h3>
+    <article class="shadow">
+        <h3 class="main-b heading-2">Top Instructors</h3>
         <ol>
             {{#each topInstructors}}
             {{#if instructor_id}}
             <li>
                 <a href="instructor/{{id}}">
-                    <p>{{"instructor.name"}} - Avg Rating: {{avg_instructor_rating}}/10</p>
+                    <p>{{"instructor.name"}} - <span class="accent-b">Avg Rating: {{avg_instructor_rating}}/10</span></p>
                 </a>
                 <p>{{"instructor.bootcamp.name"}}</p>
             </li>

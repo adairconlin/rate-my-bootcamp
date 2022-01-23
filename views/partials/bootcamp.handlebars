@@ -1,5 +1,9 @@
-<div class="bootcamp-info">
-    <p>{{name}}</p>
-    <p>Average Rating: {{feedbacks.rating}}/10</p>
-    <button type="submit">See All Reviews</button>
+<div class="info">
+    <div>
+        <p>{{name}}</p>
+        <p>Average Rating: {{feedbacks.rating}}/10</p>
+    </div>
+    <button type="submit" class="review-btn border paragraph">
+        <a href="/bootcamp/{{id}}" class="white">See All Reviews</a>
+    </button>
 </div>

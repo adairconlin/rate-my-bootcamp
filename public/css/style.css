@@ -62,8 +62,6 @@
 }
 
 /* GENERAL STYLING */
-
-
 body {
     background-image: linear-gradient(180deg, var(--main-blue), var(--main-purple));
     background-repeat: no-repeat;
@@ -104,6 +102,10 @@ footer {
     padding: 20px 100px;
     display: flex;
     justify-content: space-between;
+}
+
+.border {
+    border-radius: 10px;
 }
 
 /* HOMEPAGE */
@@ -213,4 +215,39 @@ main {
     border-radius: 10px;
     padding: 10px 20px;
     align-self: center;
+}
+
+/* ALL BOOTCAMPS/INSTRUCTORS */
+.all-background {
+    background-color: white;
+    margin: 2vw 5.5vw;
+    padding: 1.5vw;
+}
+
+.all-background h3 {
+    text-align: center;
+}
+
+.all-background li {
+    list-style: none;
+    padding-bottom: 2vw;
+    margin: 1vw 2vw;
+    border-bottom: 3px solid var(--accent-purple);
+}
+
+.all-background li .info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-btn {
+    background-color: var(--accent-purple);
+    padding: 10px 20px;
+    height: 50%;
+    align-self: end;
+    transition: .5s ease;
+}
+
+.review-btn:hover {
+    background-color: var(--hover-pink);
 }

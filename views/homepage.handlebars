@@ -18,7 +18,9 @@
     {{#each topBootcamps}}
     {{#if bootcamp_id}}
     <li>
-        <p>{{"bootcamp.name"}} - Avg Rating: {{avg_camp_rating}}/10</p>
+        <a href="/bootcamp/{{id}}">
+            <p>{{"bootcamp.name"}} - Avg Rating: {{avg_camp_rating}}/10</p>
+        </a>
     </li>
     {{/if}}
     {{/each}}
@@ -29,7 +31,9 @@
     {{#each topInstructors}}
     {{#if instructor_id}}
     <li>
-        <p>{{"instructor.name"}} - Avg Rating: {{avg_instructor_rating}}/10</p>
+        <a href="instructor/{{id}}">
+            <p>{{"instructor.name"}} - Avg Rating: {{avg_instructor_rating}}/10</p>
+        </a>
         <p>{{"instructor.bootcamp.name"}}</p>
     </li>
     {{/if}}

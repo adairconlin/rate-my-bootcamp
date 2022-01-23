@@ -9,3 +9,26 @@
     <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
 </div>
 </article>
+
+<form class="feedback-form">
+    <div>
+        <textarea name="feedback-body"></textarea>
+    </div>
+
+    <div>
+        <button type="add-feedback-btn">add feedback</button>
+    </div>
+</form>
+
+<div class="feedback">
+    {{#each post.comments}}
+    <section class="feedback-comments">
+        <div class="meta">
+            {{user.username}} on {{created_at}}
+        </div>
+        <div class="text">
+            {{comment_text}}
+        </div>
+    </section>
+    {{/each}}
+</div>

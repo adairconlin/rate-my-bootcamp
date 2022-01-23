@@ -99,12 +99,14 @@ router.get("/bootcamps", (req, res) => {
         attributes: ["id", "name"],
         include: {
             model: Feedback,
-            attributes: ["bootcamp_id", "rating"]
-        }
+            attributes: ["bootcamp_id", [sequelize.cast(sequelize.fn('AVG', sequelize.col('rating')), 'dec(2,1)'), 'avg_camp_rating']]
+        },
+        raw: true,
+        group: ['Bootcamp.name'],
+        order: sequelize.literal(`Bootcamp.name ASC`)
     })
-    .then(dbBootcampData => {
-        const bootcamps = dbBootcampData.map(bootcamp => bootcamp.get({ plain: true }));
-
+    .then(dbBootcampData => {        
+        const bootcamps = dbBootcampData;
         res.render('all-bootcamps', { bootcamps, loggedIn: req.session.loggedIn });
     })
     .catch(err => {
@@ -154,12 +156,14 @@ router.get("/instructors", (req, res) => {
         attributes: ["id", "name", "bootcamp_id"],
         include: {
             model: Feedback,
-            attributes: ["id", "rating", "instructor_id"]
-        }
+            attributes: ["id", "instructor_id", [sequelize.cast(sequelize.fn('AVG', sequelize.col('rating')), 'dec(2,1)'), 'avg_instructor_rating']]
+        },
+        raw: true,
+        group: ['Instructor.name'],
+        order: sequelize.literal(`Instructor.name ASC`)
     })
     .then(dbInstructorData => {
-        const instructors = dbInstructorData.map(instructor => instructor.get({ plain: true }));
-
+        const instructors = dbInstructorData;
         res.render('all-instructors', { instructors, loggedIn: req.session.loggedIn });
     })
     .catch(err => {

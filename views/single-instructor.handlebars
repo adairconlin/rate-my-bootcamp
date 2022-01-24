@@ -21,8 +21,11 @@
 </form>
 
 <div class="feedback">
-    {{#each instructor.reviews}}
+    {{#each instructor.feedback}}
     <section class="feedback-reviews">
+        <div class="bootcamp">
+            {{bootcamp.name}}
+        </div>
         <div class="meta">
             {{user.username}} on {{created_at}}
         </div>
@@ -31,10 +34,6 @@
         </div>
         <div class="rating">
             {{rating}}
-        </div>
-        <div class="bootcamp">
-            {{bootcamp.id}}
-            {{bootcamp.name}}
         </div>
     </section>
     {{/each}}

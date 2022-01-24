@@ -1,12 +1,21 @@
-<section>
-    <h3>Edit Review</h3>
-</section>
+<div class="main-b shadow heading-2 all-background border">
+    <h3>Edit Feedback</h3>
+</div>
 
-<form class="edit-feedback">
-    <input value={{feedback.rating}} id="rating" type="number" />
-    <input value={{feedback.review_text}} id="review" />
-    <button type="submit">Save Changes</button>
-    <button type="button" class="delete-feedback">Delete Review</button>
+<form class="edit-feedback all-background border shadow main-b paragraph">
+    <div>
+        <label for="rating">Rating:</label>
+        <input value={{feedback.rating}} id="rating" type="number" class="border main-b paragraph" />
+    </div>
+    <div>
+        <label for="review">Review:</label>
+        <input value="{{feedback.review_text}}" id="review" class="border main-b paragraph" />
+    </div>
+
+    <div>
+        <button type="submit" class="white border subtext">Save Changes</button>
+        <button type="button" class="delete-feedback white border subtext">Delete Review</button>
+    </div>
 </form>
 
 <script src="/javascript/edit.js"></script>

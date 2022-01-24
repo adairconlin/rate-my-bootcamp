@@ -1,38 +1,326 @@
-/*color scheme*/
+/* COLOR SCHEME */
 :root {
     --hover-pink: #f052ff;
     --main-purple: #af4ae8;
     --accent-purple: #995fff;
     --main-blue: #594ae8;
     --accent-blue: #5270ff;
-};
+}
 
-/*font styles*/
-.myFont {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     font-family: neue-kabel, sans-serif;
     font-style: normal;
-};
+}
 
+/* FONT STYLES */
 .title {
-    font-size: 64px;
+    font-size: 4.1vw;
     font-weight: 700;
-};
+}
 
 .heading-1 {
-    font-size: 56px;
+    font-size: 3.645vw;
     font-weight: 600;
-};
+}
 
 .heading-2 {
-    font-size: 48px;
+    font-size: 3vw;
     font-weight: 600;
-};
+}
 
 .paragraph {
-    font-size: 36px;
+    font-size: 2.3vw;
     font-weight: 400;
-};
+}
+
+.subtext {
+    font-size: 1.5vw;
+}
+
+/* COLORS */
+.main-b {
+    color: var(--main-blue);
+}
+
+.main-p {
+    color: var(--main-purple)
+}
+
+.accent-p {
+    color: var(--accent-purple)
+}
+
+.accent-b {
+    color: var(--accent-blue)
+}
+
+.white {
+    color: white;
+}
 
 .shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* GENERAL STYLING */
+body {
+    background-image: linear-gradient(180deg, var(--main-blue), var(--main-purple));
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+button {
+    border: none;
+    transition: .5s ease;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    background-color: white;
+    display: flex;
+    padding: 20px 100px;
+}
+
+header a {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+header nav {
+    align-self: center;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+footer {
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.border {
+    border-radius: 10px;
+}
+
+/* HOMEPAGE */
+main {
+    z-index: -1;
+}
+
+.btn-logout {
+    background-color: white;
+    padding-left: 1vw
+}
+
+.hero-section {
+    position: sticky;
+    background-image: url("/imgs/hero-img.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.overlay {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.overlay div {
+    width: 70%;
+    background-image: linear-gradient(120deg, var(--main-blue), var(--main-purple));
+    border-radius: 10px;
+    padding: 50px 20px;
+    text-align: center;
+    margin: 6vw 4vw;
+}
+
+.hero-btn-div {
+    display: flex;
+    justify-content: space-around;
+    margin: 3vw 5vw;
+}
+
+.hero-btn-div button {
+    background-color: white;
+    padding: 50px 60px;
+    border-radius: 10px;
+}
+
+.hero-btn-div button:hover {
+    color: var(--hover-pink);
+}
+
+.top-ten {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.top-ten article {
+    background-color: white;
+    width: 35%;
+    border-radius: 10px;
+    padding: 2vw 3vw;
+    margin-top: 5vw;
+    margin-bottom: 8vw;
+}
+
+.top-ten article ol {
+    margin-top: 25px;
+    margin-left: 30px;
+}
+
+.top-ten article li, .top-ten article li a {
+    color: var(--main-blue);
+    font-size: 1.5vw;
+    font-weight: 400;
+    margin-bottom: 20px;
+    transition: .5s ease;
+}
+
+.top-ten article li a:hover {
+    color: var(--hover-pink);
+}
+
+.bootcamp-info {
+    font-size: 1vw;
+}
+
+/* LOGIN PAGE */
+.login-section {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5vw;
+    margin-bottom: 6vw;
+}
+
+.login-form, .signup-form {
+    background-color: white;
+    border-radius: 10px;
+    width: 38%;
+    padding: 2vw 3.3vw;
+}
+
+.login-form div, .signup-form div {
+    margin-top: 2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form input, .signup-form input {
+    border: 3px solid var(--main-blue);
+    border-radius: 10px;
+    padding: 3px 10px;
+}
+.login-form button, .signup-form button {
+    background-color: var(--accent-purple);
+    width: 80%;
+    border-radius: 10px;
+    padding: 10px 20px;
+    align-self: center;
+}
+
+/* ALL BOOTCAMPS/INSTRUCTORS */
+.all-background {
+    background-color: white;
+    margin: 2vw 5.5vw;
+    padding: 1.5vw 2vw;
+}
+
+.all-background h3 {
+    text-align: center;
+}
+
+.all-background li {
+    list-style: none;
+    padding-bottom: 2vw;
+    margin: 1vw 2vw;
+    border-bottom: 3px solid var(--accent-purple);
+}
+
+.all-background li .info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-btn {
+    background-color: var(--accent-purple);
+    padding: 10px 20px;
+    height: 50%;
+    align-self: end;
+    transition: .5s ease;
+}
+
+.review-btn:hover {
+    background-color: var(--hover-pink);
+}
+
+/* DASHBOARD */
+.dash-feedback {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vw;
+    padding-top: 2vw;
+    border-top: 4px solid var(--main-purple);
+}
+
+.feedback-meta {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.feedback-meta .rating {
+    border: 4px solid var(--main-purple);
+    align-self: end;
+    padding: .5vw 3vw;
+}
+
+.dash-feedback button {
+    background-color: var(--accent-purple);
+    padding: .5vw 1vw;
+    transition: .5s ease;
+    margin-top: 1vw;
+}
+
+.dash-feedback button:hover {
+    background-color: var(--hover-pink);
+}
+
+/* EDIT PAGE */
+.edit-feedback {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2vw;
+}
+
+.edit-feedback div {
+    margin-bottom: 2vw;
+}
+
+.edit-feedback input {
+    border: 3px solid var(--main-purple);
+    padding: .2vw 1.5vw;
+}
+
+.edit-feedback button {
+    background-color: var(--accent-purple);
+    padding: 1vw 2vw;
+    transition: .5s ease;
+}
+
+.edit-feedback button:hover {
+    background-color: var(--hover-pink);
 }

@@ -1,15 +1,19 @@
-<div class="feedback">
-    {{#if instructor_id}}
-    <p>{{instructor.name}}</p>
-    {{else}}
-    <p>{{bootcamp.name}}</p>
-    {{/if}}
-    <p>Rating: {{rating}}/10</p>
-    {{#if review_text}}
-    <p>{{review_text}}</p>
-    {{/if}}
+<section class="feedback-meta">
+    <div>
+        {{#if instructor_id}}
+        <p class="main-b heading-2">{{instructor.name}}</p>
+        <p class="accent-b subtext">{{instructor.bootcamp.name}}</p>
+        {{else}}
+        <p class="main-b heading-2">{{bootcamp.name}}</p>
+        {{/if}}
+    </div>
+    <p class="main-b paragraph rating border">Rating: {{rating}}/10</p>
+</section>
 
-    <a href="/dashboard/edit/{{id}}">
-        <button type="submit">Edit Review</button>
-    </a>
-</div>
+<section>
+    <p class="main-b paragraph">{{review_text}}</p>
+</section>
+
+<a href="/dashboard/edit/{{id}}">
+    <button type="submit" class="white subtext border">Edit Review</button>
+</a>

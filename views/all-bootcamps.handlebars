@@ -1,10 +1,13 @@
-<div>
+<div class="main-b shadow heading-2 all-background border">
     <h3>All Bootcamps</h3>
 </div>
-<ul class="instructor-list">
-    {{#each bootcamps as |bootcamp|}}
-    <li>
-        {{> bootcamp bootcamp}}
-    </li>
-    {{/each}}
-</ul>
+
+<div class="main-b shadow heading-2 all-background border">
+    <ul>
+        {{#each bootcamps as |bootcamp|}}
+        <li>
+            {{> bootcamp bootcamp}}
+        </li>
+        {{/each}}
+    </ul>
+</div>

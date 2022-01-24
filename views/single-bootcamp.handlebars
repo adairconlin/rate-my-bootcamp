@@ -1,7 +1,7 @@
 <article class="single-bootcamp">
     <div class="title">
-        <a href="{{bootcamp_url}}" target="_blank">{{bootcamp.title}}</a>
-        <spam>({{bootcamp_url}})</spam>
+        <a href="/bootcamp/{{id}}" target="_blank">{{bootcamp.name}}</a>
+        <span>(/bootcamp/{{id}})</span>
     </div>
 <div class="bootcamp-post-info">
     by {{bootcamp.user.username}} on {{bootcamp.created_at}}
@@ -32,6 +32,12 @@
         <div class="rating">
             {{rating}}
         </div>
+        <div class="instructor">
+            {{instructor.id}}
+            {{instructor.name}}
+        </div>
     </section>
     {{/each}}
 </div>
+
+<!-- check if logged in to leave review -->

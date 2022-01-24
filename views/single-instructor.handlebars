@@ -1,12 +1,12 @@
 <article class="single-instructor">
     <div class="title">
-        <a href="{{instructor_url}}" target="_blank">{{instructor.title}}</a>
-        <spam>({{instructor_url}})</spam>
+        <a href="/instructor/{{id}}" target="_blank">{{instructor.name}}</a>
+        <span>(/instructor/{{id}})</span>
     </div>
 <div class="instructor-post-info">
     by {{instructor.user.username}} on {{instructor.created_at}}
     |
-    <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
+    <a href="/instructor/{{id}}">{{instructor.feedback.length}} reviews(s)</a>
 </div>
 </article>
 
@@ -32,6 +32,12 @@
         <div class="rating">
             {{rating}}
         </div>
+        <div class="bootcamp">
+            {{bootcamp.id}}
+            {{bootcamp.name}}
+        </div>
     </section>
     {{/each}}
 </div>
+
+<!-- check if logged in to leave review -->

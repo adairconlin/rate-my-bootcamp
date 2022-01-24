@@ -1,0 +1,42 @@
+<article class="single-instructor">
+    <div class="title">
+        <a href="/instructor/{{id}}" target="_blank">{{instructor.name}}</a>
+        <span>(/instructor/{{id}})</span>
+    </div>
+<div class="instructor-post-info">
+    by {{instructor.user.username}} on {{instructor.created_at}}
+    |
+    <a href="/instructor/{{id}}">{{instructor.feedback.length}} reviews(s)</a>
+</div>
+</article>
+
+<form class="feedback-form">
+    <div>
+        <textarea name="feedback-body"></textarea>
+    </div>
+
+    <div>
+        <button type="add-feedback-btn">add feedback</button>
+    </div>
+</form>
+
+<div class="feedback">
+    {{#each instructor.feedback}}
+    <section class="feedback-reviews">
+        <div class="meta">
+            {{user.username}} on {{created_at}}
+        </div>
+        <div class="review-text">
+            {{review_text}}
+        </div>
+        <div class="rating">
+            {{rating}}
+        </div>
+    </section>
+    {{/each}}
+</div>
+
+<!-- check if logged in to leave review -->
+{{#if loggedIn}}
+<script src="/javascript/add-feedback.js"></script>
+{{/if}}

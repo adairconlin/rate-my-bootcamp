@@ -1,0 +1,42 @@
+<article class="single-bootcamp">
+    <div class="title">
+        <a href="/bootcamp/{{id}}" target="_blank">{{bootcamp.name}}</a>
+        <span>(/bootcamp/{{id}})</span>
+    </div>
+<div class="bootcamp-post-info">
+    by {{bootcamp.user.username}} on {{bootcamp.created_at}}
+    |
+    <a href="/bootcamp/{{bootcamp.id}}">{{bootcamp.reviews.length}} comment(s)</a>
+</div>
+</article>
+
+<form class="feedback-form">
+    <div>
+        <textarea name="feedback-body"></textarea>
+    </div>
+
+    <div>
+        <button type="add-feedback-btn">add feedback</button>
+    </div>
+</form>
+
+<div class="feedback">
+    {{#each bootcamp.feedback}}
+    <section class="feedback-reviews">
+        <div class="meta">
+            {{user.username}} on {{created_at}}
+        </div>
+        <div class="review-text">
+            {{review_text}}
+        </div>
+        <div class="rating">
+            {{rating}}
+        </div>
+    </section>
+    {{/each}}
+</div>
+
+<!-- check if logged in to leave review -->
+{{#if loggedIn}}
+<script src="/javascript/add-feedback.js"></script>
+{{/if}}

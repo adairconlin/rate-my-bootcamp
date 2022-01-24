@@ -36,6 +36,10 @@
     font-weight: 400;
 }
 
+.subtext {
+    font-size: 1.5vw;
+}
+
 /* COLORS */
 .main-b {
     color: var(--main-blue);
@@ -113,6 +117,11 @@ main {
     z-index: -1;
 }
 
+.btn-logout {
+    background-color: white;
+    padding-left: 1vw
+}
+
 .hero-section {
     position: sticky;
     background-image: url("/imgs/hero-img.png");
@@ -183,6 +192,10 @@ main {
     color: var(--hover-pink);
 }
 
+.bootcamp-info {
+    font-size: 1vw;
+}
+
 /* LOGIN PAGE */
 .login-section {
     display: flex;
@@ -221,7 +234,7 @@ main {
 .all-background {
     background-color: white;
     margin: 2vw 5.5vw;
-    padding: 1.5vw;
+    padding: 1.5vw 2vw;
 }
 
 .all-background h3 {
@@ -249,5 +262,65 @@ main {
 }
 
 .review-btn:hover {
+    background-color: var(--hover-pink);
+}
+
+/* DASHBOARD */
+.dash-feedback {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vw;
+    padding-top: 2vw;
+    border-top: 4px solid var(--main-purple);
+}
+
+.feedback-meta {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.feedback-meta .rating {
+    border: 4px solid var(--main-purple);
+    align-self: end;
+    padding: .5vw 3vw;
+}
+
+.dash-feedback button {
+    background-color: var(--accent-purple);
+    padding: .5vw 1vw;
+    transition: .5s ease;
+    margin-top: 1vw;
+}
+
+.dash-feedback button:hover {
+    background-color: var(--hover-pink);
+}
+
+/* EDIT PAGE */
+.edit-feedback {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2vw;
+}
+
+.edit-feedback div {
+    margin-bottom: 2vw;
+}
+
+.edit-feedback input {
+    border: 3px solid var(--main-purple);
+    padding: .2vw 1.5vw;
+}
+
+.edit-feedback button {
+    background-color: var(--accent-purple);
+    padding: 1vw 2vw;
+    transition: .5s ease;
+}
+
+.edit-feedback button:hover {
     background-color: var(--hover-pink);
 }

@@ -22,7 +22,7 @@
             {{#if bootcamp_id}}
             <li>
                 <a href="/bootcamp/{{id}}">
-                    <p>{{"bootcamp.name"}} - <span class="accent-b">Avg Rating: {{avg_camp_rating}}/10</span></p>
+                    <p>{{"bootcamp.name"}}<br><span class="accent-b">Avg Rating: {{avg_camp_rating}}/10</span></p>
                 </a>
             </li>
             {{/if}}
@@ -39,7 +39,7 @@
                 <a href="instructor/{{id}}">
                     <p>{{"instructor.name"}} - <span class="accent-b">Avg Rating: {{avg_instructor_rating}}/10</span></p>
                 </a>
-                <p>{{"instructor.bootcamp.name"}}</p>
+                <p class="bootcamp-info">{{"instructor.bootcamp.name"}}</p>
             </li>
             {{/if}}
             {{/each}}

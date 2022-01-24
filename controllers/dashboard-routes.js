@@ -10,11 +10,19 @@ router.get("/", withAuth, (req, res) => {
         where: {
             user_id: req.session.user_id
         },
-        attributes: ["id", "review_text", "rating", "created_at"],
+        attributes: ["id", "review_text", "rating", "created_at", "instructor_id", "bootcamp_id"],
         include: [
             {
                 model: Bootcamp,
                 attributes: ["id", "name"]
+            },
+            {
+                model: Instructor,
+                attributes: ["id", "name", "bootcamp_id"],
+                include: {
+                    model: Bootcamp,
+                    attributes: ["id", "name"]
+                }
             },
             {
                 model: User,

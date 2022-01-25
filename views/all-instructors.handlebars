@@ -2,8 +2,6 @@
     <h3>All Instructors</h3>
 </div>
 
-<a href="/create-instructor">CREATE INSTRUCTOR</a>
-
 <div class="main-b shadow heading-2 all-background border">
     <ul>
         {{#each instructors as |instructor|}}
@@ -12,4 +10,9 @@
         </li>
         {{/each}}
     </ul>
+    <div class="create">
+        <button class="button paragraph">
+            <a class="white" href="/create-instructor">Add An Instructor</a>
+        </button>
+    </div>
 </div>

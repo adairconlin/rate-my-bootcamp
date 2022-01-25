@@ -103,13 +103,17 @@ footer {
     justify-content: space-between;
 }
 
+input, select {
+    border: 4px solid var(--main-blue);
+    padding: 0 1vw;
+    width: 100%;
+}
+
 .border {
     border-radius: 10px;
 }
 
 .button {
-    font-size: 2.3vw;
-    font-weight: 400;
     color: white;
     background-color: var(--accent-purple);
     border-radius: 15px;
@@ -227,7 +231,7 @@ main {
 }
 
 .login-form input, .signup-form input {
-    border: 3px solid var(--main-blue);
+    border: 4px solid var(--main-blue);
     border-radius: 10px;
     padding: 3px 10px;
 }
@@ -254,7 +258,7 @@ main {
     list-style: none;
     padding-bottom: 2vw;
     margin: 1vw 2vw;
-    border-bottom: 3px solid var(--accent-purple);
+    border-bottom: 4px solid var(--accent-purple);
 }
 
 .all-background li .info {
@@ -274,19 +278,24 @@ main {
     background-color: var(--hover-pink);
 }
 
+.create {
+    display: flex;
+    justify-content: center;
+}
+
 /* DASHBOARD */
 .dash-feedback {
     display: flex;
     flex-direction: column;
-    margin-top: 2vw;
-    padding-top: 2vw;
-    border-top: 4px solid var(--main-purple);
 }
 
 .feedback-meta {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-top: 4px solid var(--main-purple);
+    margin-top: 1.5vw;
+    padding-top: 1vw;
 }
 
 .feedback-meta .rating {
@@ -306,6 +315,10 @@ main {
     background-color: var(--hover-pink);
 }
 
+.create-btn-spacing {
+    justify-content: space-around;
+}
+
 /* EDIT PAGE */
 .edit-feedback {
     display: flex;
@@ -320,7 +333,7 @@ main {
 }
 
 .edit-feedback input {
-    border: 3px solid var(--main-purple);
+    border: 4px solid var(--main-purple);
     padding: .2vw 1.5vw;
 }
 
@@ -340,7 +353,7 @@ main {
 }
 
 .feedback-reviews {
-    border-top: 3px solid var(--main-purple);
+    border-top: 4px solid var(--main-purple);
     padding-top: 1vw;
     margin-top: 1vw;
 }
@@ -360,7 +373,7 @@ main {
 }
 
 .feedback-form input, .feedback-form textarea {
-    border: 3px solid var(--main-purple);
+    border: 4px solid var(--main-purple);
     margin: 0 1vw;
     width: 100%;
     padding-left: 10px;
@@ -379,4 +392,17 @@ main {
     margin-top: 3vw;
     margin-left: auto;
     margin-right: 0;
+}
+
+/* CREATE BOOTCAMP/INSTRUCTOR PAGE */
+.add-feedback div {
+    margin-bottom: 1vw;
+}
+
+#user_id {
+    display: none;
+}
+
+select:hover {
+    cursor: pointer;
 }

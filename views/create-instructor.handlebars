@@ -1,5 +1,5 @@
 <div class="main-b shadow heading-2 all-background border">
-    <h3>Add Feedback</h3>
+    <h3>Add & Review An Instructor</h3>
 </div>
 
 <form class="add-feedback all-background border shadow main-b paragraph">
@@ -17,9 +17,9 @@
     </div>
     <div>
         <label for="bootcamp">Bootcamp:</label>
-        <select id="bootcamp-list" size=`{{allBootcamps.length}}`>
+        <select class="border paragraph main-b" id="bootcamp-list" size=`{{allBootcamps.length}}`>
             {{#each allBootcamps}}
-            <option value="{{id}}">{{name}}</option>
+            <option class="subtext" value="{{id}}">{{name}}</option>
             {{/each}}
         </select>
     </div>
@@ -27,8 +27,7 @@
         <p id="user_id">{{user_id}}</p>
     </div>
     <div>
-        <button type="submit" class="white border subtext">Save Changes</button>
-        <button type="button" class="delete-feedback white border subtext">Delete Review</button>
+        <button type="submit" class="white border subtext button">Submit</button>
     </div>
 </form>
 

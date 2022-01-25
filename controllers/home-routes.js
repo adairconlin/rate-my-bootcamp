@@ -101,7 +101,7 @@ router.get("/create-bootcamp", (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/login');
     }
-    res.render('create-bootcamp', { user_id: req.session.user_id });
+    res.render('create-bootcamp', { loggedIn: req.session.loggedIn, user_id: req.session.user_id });
 });
 
 // add instructor page
@@ -116,7 +116,7 @@ router.get("/create-instructor", (req, res) => {
     })
     .then(dbBootcampData => {
         const allBootcamps = dbBootcampData;
-        res.render('create-instructor', { allBootcamps, user_id: req.session.user_id });
+        res.render('create-instructor', { allBootcamps, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
     })
     .catch(err => {
         console.log(err);
@@ -173,7 +173,7 @@ router.get("/bootcamp/:id", (req, res) => {
         }
         const bootcamp = dbBootcampData.get({ plain: true });
 
-        res.render('single-bootcamp', { bootcamp, loggedIn: req.session.loggedIn });
+        res.render('single-bootcamp', { bootcamp, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
     })
     .catch(err => {
         console.log(err);
@@ -230,7 +230,7 @@ router.get("/instructor/:id", (req, res) => {
         }
         const instructor = dbInstructorData.get({ plain:true });
 
-        res.render('single-instructor', {instructor, loggedIn: req.session.loggedIn });
+        res.render('single-instructor', {instructor, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
     })
     .catch(err => {
         console.log(err);

@@ -30,8 +30,12 @@
         {{{ body }}}
     </main>
     <footer class="subtext white">
-        <h4>&copy Sophia, Adair and Max 2022</h4>
+        <h4>&copy Sophia, Adair, and Max 2022</h4>
         <h4>Rate Again Soon!</h4>
     </footer>
+    
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 </html>

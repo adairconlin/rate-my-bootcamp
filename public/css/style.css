@@ -88,21 +88,16 @@ a {
 header {
     background-color: white;
     display: flex;
+    justify-content: space-between;
     padding: 20px 100px;
-}
-
-header a {
-    margin-left: auto;
-    margin-right: 0;
 }
 
 header nav {
     align-self: center;
-    margin-right: 0;
-    margin-left: auto;
 }
 
 footer {
+    margin-top: 8vw;
     padding: 20px 100px;
     display: flex;
     justify-content: space-between;
@@ -110,6 +105,20 @@ footer {
 
 .border {
     border-radius: 10px;
+}
+
+.button {
+    font-size: 2.3vw;
+    font-weight: 400;
+    color: white;
+    background-color: var(--accent-purple);
+    border-radius: 15px;
+    padding: .3vw 1vw;
+    transition: .5s ease;
+}
+
+.button:hover {
+    background-color: var(--hover-pink);
 }
 
 /* HOMEPAGE */
@@ -234,7 +243,7 @@ main {
 .all-background {
     background-color: white;
     margin: 2vw 5.5vw;
-    padding: 1.5vw 4vw;
+    padding: 2vw 4vw;
 }
 
 .all-background h3 {
@@ -335,4 +344,33 @@ main {
 .feedback-text {
     display: flex;
     justify-content: space-between;
+}
+
+.feedback-form {
+    margin-top: 1vw;
+}
+
+.feedback-form  div {
+    display: flex;
+    margin-bottom: 1vw;
+}
+
+.feedback-form input, .feedback-form textarea {
+    border: 3px solid var(--main-purple);
+    margin: 0 1vw;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.feedback-form input:focus, .feedback-form textarea:focus {
+    outline: none;
+}
+
+.feedback-form input {
+    width: 5vw;
+}
+
+.feedback-form button {
+    margin-top: 3vw;
 }

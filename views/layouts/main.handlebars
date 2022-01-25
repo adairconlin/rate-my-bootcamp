@@ -10,12 +10,16 @@
 </head>
 <body>
     <header class="shadow">
+        <nav class="paragraph">
+            {{#if loggedIn}}
+             <a href="/dashboard" class="main-b">Dashboard</a>
+            {{/if}}
+        </nav>
         <a href="/">
             <h1 class="title main-b">Rate My Bootcamp</h1>
         </a>
         <nav class="paragraph">
             {{#if loggedIn}}
-            <a href="/dashboard" class="main-b">Dashboard</a>
             <button class="btn-logout main-b paragraph" id="logout">Logout</button>
             {{else}}
             <a href="/login" class="main-b">Login</a>
@@ -26,8 +30,12 @@
         {{{ body }}}
     </main>
     <footer class="subtext white">
-        <h4>&copy Sophia, Adair and Max 2022</h4>
+        <h4>&copy Sophia, Adair, and Max 2022</h4>
         <h4>Rate Again Soon!</h4>
     </footer>
+    
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 </html>

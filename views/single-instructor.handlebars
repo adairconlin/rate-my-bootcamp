@@ -4,16 +4,6 @@
     </div>
 </article>
 
-<form class="feedback-form">
-    <div>
-        <textarea name="feedback-body"></textarea>
-    </div>
-
-    <div>
-        <button type="add-feedback-btn">add feedback</button>
-    </div>
-</form>
-
 <div class="feedback">
     {{#each instructor.feedbacks}}
     <section class="feedback-reviews">
@@ -32,5 +22,14 @@
 
 <!-- check if logged in to leave review -->
 {{#if loggedIn}}
+<form class="feedback-form">
+    <div>
+        <textarea name="feedback-body"></textarea>
+    </div>
+
+    <div>
+        <button type="add-feedback-btn">add feedback</button>
+    </div>
+</form>
 <script src="/javascript/add-feedback.js"></script>
 {{/if}}

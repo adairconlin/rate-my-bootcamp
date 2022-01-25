@@ -10,26 +10,28 @@ async function addBootcamp(event) {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
             addFeedback(data);
-        })
+        });
 };
 
 async function addFeedback(data) {
     const rating = document.querySelector("#rating").value;
     const review_text = document.querySelector("#review").value;
     const bootcamp_id = data.id;
-    const user_id = "1";
+    const user_id = document.querySelector("#user_id").innerHTML;
 
-    await fetch("api/feedback", {
+    const createFeedback = await fetch("api/feedback", {
         method: "POST",
         body: JSON.stringify({ rating, review_text, bootcamp_id, user_id }),
         headers: { "Content-type": "application/json" }
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-        })
-}
+    });
+    
+    if (createFeedback.ok) {
+        document.location.replace('/dashboard');
+    }
+    else {
+        alert(createFeedback.statusText);
+    }
+};
 
 document.querySelector(".add-feedback").addEventListener("submit", addBootcamp);

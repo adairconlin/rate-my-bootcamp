@@ -101,7 +101,7 @@ router.get("/create-bootcamp", (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/login');
     }
-    res.render('create-bootcamp');
+    res.render('create-bootcamp', {user_id: req.session.user_id });
 });
 
 router.get("/bootcamps", (req, res) => {

@@ -1,7 +1,9 @@
 const router = require("express").Router();
+const { route } = require("express/lib/application");
 const sequelize = require("../config/connection");
 const { User, Bootcamp, Instructor, Feedback } = require("../models");
 
+// get all instructors and bootcamps using the feedback model in order to calculate the average of their ratings
 router.get("/", (req, res) => {
     Feedback.findAll({
         attributes: ["id", "bootcamp_id", [sequelize.cast(sequelize.fn('AVG', sequelize.col('rating')), 'dec(2,1)'), 'avg_camp_rating']],
@@ -92,6 +94,14 @@ router.get("/login", (req, res) => {
         return;
     }
     res.render('login');
+});
+
+// add bootcamp page
+router.get("/create-bootcamp", (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    }
+    res.render('create-bootcamp');
 });
 
 router.get("/bootcamps", (req, res) => {
@@ -194,6 +204,10 @@ router.get("/instructor/:id", (req, res) => {
         ]
     })
     .then(dbInstructorData => {
+        if (!dbInstructorData) {
+            res.status(404).json({ message: 'No instructor found with this id' });
+            return;
+        }
         const instructor = dbInstructorData.get({ plain:true });
 
         res.render('single-instructor', {instructor, loggedIn: req.session.loggedIn });

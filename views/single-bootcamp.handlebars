@@ -20,10 +20,10 @@
 </form>
 
 <div class="feedback">
-    {{#each bootcamp.feedback}}
+    {{#each bootcamp.feedbacks}}
     <section class="feedback-reviews">
         <div class="meta">
-            {{user.username}} on {{created_at}}
+            {{bootcamp.feedbacks.user.username}} on {{bootcamp.feedbacks.created_at}}
         </div>
         <div class="review-text">
             {{review_text}}

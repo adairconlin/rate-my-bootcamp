@@ -35,6 +35,27 @@ const feedbackData = [
         bootcamp_id: 1,
         user_id: 4,
         rating: 7
+    },
+    {
+        review_text: 'Learned a lot of cool stuff with Python. Looking forward to my new job!',
+        instructor_id: null,
+        bootcamp_id: 4,
+        user_id: 4,
+        rating: 8
+    },
+    {
+        review_text: 'Helpful when I needed them',
+        instructor_id: 3,
+        bootcamp_id: 4,
+        user_id: 4,
+        rating: 7
+    },
+    {
+        review_text: 'Not much help and did not seem to grasp the material well enough to explain',
+        instructor_id: 1,
+        bootcamp_id: 3,
+        user_id: 4,
+        rating: 4
     }
 ];
 

@@ -10,9 +10,11 @@
         </li>
         {{/each}}
     </ul>
+    {{#if loggedIn}}
     <div class="create">
         <button class="button paragraph">
             <a class="white" href="/create-bootcamp">Add A Bootcamp</a>
         </button>
     </div>
+    {{/if}}
 </div>

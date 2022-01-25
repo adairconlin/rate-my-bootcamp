@@ -6,6 +6,7 @@
     <article>
         <div>
             <a class="title main-b">{{instructor.name}}</a>
+            <p id="bootcamp_id">{{instructor.bootcamp_id}}</p>
         </div>
     </article>
 
@@ -40,9 +41,13 @@
         </div>
 
         <div>
+            <p id="user_id">{{user_id}}</p>
+        </div>
+
+        <div>
             <button type="add-feedback-btn" class="button">add feedback</button>
         </div>
     </form>
 </section>
-<script src="/javascript/add-feedback.js"></script>
+<script src="/javascript/add-instructor-feedback.js"></script>
 {{/if}}

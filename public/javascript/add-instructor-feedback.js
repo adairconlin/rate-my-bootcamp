@@ -3,12 +3,13 @@ async function newFeedback(event) {
 
     const rating = document.querySelector("#rating").value;
     const review_text = document.querySelector("#review").value;
+    const user_id = document.querySelector("#user_id").innerHTML;
     const instructor_id = window.location.pathname.split("/")[2];
-    const user_id = "1";
+    const bootcamp_id = document.querySelector("#bootcamp_id").innerHTML;
 
     const response = await fetch("/api/feedback", {
         method: "POST",
-        body: JSON.stringify({ rating, review_text, instructor_id, user_id }),
+        body: JSON.stringify({ rating, review_text, bootcamp_id, instructor_id, user_id }),
         headers: {
             "Content-Type": "application/json"
         }
@@ -19,6 +20,7 @@ async function newFeedback(event) {
     } else {
         alert(response.statusText);
     }
+
 };
 
 document.querySelector(".feedback-form").addEventListener("submit", newFeedback);

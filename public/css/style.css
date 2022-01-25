@@ -394,6 +394,10 @@ main {
     margin-right: 0;
 }
 
+#bootcamp_id {
+    display: none;
+}
+
 /* CREATE BOOTCAMP/INSTRUCTOR PAGE */
 .add-feedback div {
     margin-bottom: 1vw;

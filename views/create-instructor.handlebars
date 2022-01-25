@@ -1,0 +1,36 @@
+<div class="main-b shadow heading-2 all-background border">
+    <h3>Add Feedback</h3>
+</div>
+
+<form class="add-feedback all-background border shadow main-b paragraph">
+    <div>
+        <label for="name">Name:</label>
+        <input id="name" type="text" class="border main-b paragraph" />
+    </div>
+    <div>
+        <label for="rating">Rating:</label>
+        <input id="rating" type="number" class="border main-b paragraph" />
+    </div>
+    <div>
+        <label for="review">Review:</label>
+        <input id="review" class="border main-b paragraph" />
+    </div>
+    <div>
+        <label for="bootcamp">Bootcamp:</label>
+        <select id="bootcamp-list" size=`{{allBootcamps.length}}`>
+            {{#each allBootcamps}}
+            <option value="{{id}}">{{name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div>
+        <p id="user_id">{{user_id}}</p>
+    </div>
+    <div>
+        <button type="submit" class="white border subtext">Save Changes</button>
+        <button type="button" class="delete-feedback white border subtext">Delete Review</button>
+    </div>
+</form>
+
+<script src="/javascript/add-instructor.js"></script>
+<script src="/javascript/delete.js"></script>

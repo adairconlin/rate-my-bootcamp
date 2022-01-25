@@ -101,7 +101,27 @@ router.get("/create-bootcamp", (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/login');
     }
-    res.render('create-bootcamp', {user_id: req.session.user_id });
+    res.render('create-bootcamp', { user_id: req.session.user_id });
+});
+
+// add instructor page
+router.get("/create-instructor", (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    }
+
+    Bootcamp.findAll({
+        attributes: ["id", "name"],
+        raw: true
+    })
+    .then(dbBootcampData => {
+        const allBootcamps = dbBootcampData;
+        res.render('create-instructor', { allBootcamps, user_id: req.session.user_id });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 router.get("/bootcamps", (req, res) => {
@@ -121,7 +141,7 @@ router.get("/bootcamps", (req, res) => {
     })
     .catch(err => {
         console.log(err);
-        res.json(500).json(err);
+        res.status(500).json(err);
     });
 });
 
@@ -157,7 +177,7 @@ router.get("/bootcamp/:id", (req, res) => {
     })
     .catch(err => {
         console.log(err);
-        res.json(500).json(err);
+        res.status(500).json(err);
     });
 });
 

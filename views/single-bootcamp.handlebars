@@ -1,11 +1,11 @@
 <div class="main-b shadow heading-2 all-background border">
-    <h3>Reviews</h3>
+    <h3 class="review-title">Reviews</h3>
 </div>
 
 <section class="all-background border shadow">
     <article>
         <div>
-            <a href="/bootcamp/{{id}}" target="_blank" class="title main-b">{{bootcamp.name}}</a>
+            <a class="title main-b">{{bootcamp.name}}</a>
         </div>
     </article>
 
@@ -27,7 +27,7 @@
 <!-- check if logged in to leave review -->
 {{#if loggedIn}}
 <section class="shadow all-background border">
-    <h3 class="heading-2 main-b">Share your experience!</h3>
+    <h3 class="heading-2 main-b review-title">Share your experience!</h3>
     <form class="feedback-form">
         <div>
             <label for="rating" class="paragraph accent-b">Rating: </label>

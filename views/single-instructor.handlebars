@@ -5,7 +5,7 @@
 <section class="all-background border shadow">
     <article>
         <div>
-            <a href="/instructor/{{id}}" target="_blank" class="title main-b">{{instructor.name}}</a>
+            <a class="title main-b">{{instructor.name}}</a>
         </div>
     </article>
 
@@ -27,7 +27,7 @@
 <!-- check if logged in to leave review -->
 {{#if loggedIn}}
 <section class="shadow all-background border">
-    <h3 class="heading-2 main-b">Share your experience!</h3>
+    <h3 class="heading-2 main-b review-title">Share your experience!</h3>
     <form class="feedback-form">
         <div>
             <label for="rating" class="paragraph accent-b">Rating: </label>

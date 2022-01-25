@@ -335,6 +335,10 @@ main {
 }
 
 /* SINGLE BOOTCAMP/INSTRUCTOR */
+.review-title {
+    margin-bottom: 3vw;
+}
+
 .feedback-reviews {
     border-top: 3px solid var(--main-purple);
     padding-top: 1vw;
@@ -373,4 +377,6 @@ main {
 
 .feedback-form button {
     margin-top: 3vw;
+    margin-left: auto;
+    margin-right: 0;
 }

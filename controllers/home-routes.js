@@ -1,7 +1,9 @@
 const router = require("express").Router();
+const { route } = require("express/lib/application");
 const sequelize = require("../config/connection");
 const { User, Bootcamp, Instructor, Feedback } = require("../models");
 
+// get all instructors and bootcamps using the feedback model in order to calculate the average of their ratings
 router.get("/", (req, res) => {
     Feedback.findAll({
         attributes: ["id", "bootcamp_id", [sequelize.cast(sequelize.fn('AVG', sequelize.col('rating')), 'dec(2,1)'), 'avg_camp_rating']],
@@ -94,6 +96,34 @@ router.get("/login", (req, res) => {
     res.render('login');
 });
 
+// add bootcamp page
+router.get("/create-bootcamp", (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    }
+    res.render('create-bootcamp', { user_id: req.session.user_id });
+});
+
+// add instructor page
+router.get("/create-instructor", (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    }
+
+    Bootcamp.findAll({
+        attributes: ["id", "name"],
+        raw: true
+    })
+    .then(dbBootcampData => {
+        const allBootcamps = dbBootcampData;
+        res.render('create-instructor', { allBootcamps, user_id: req.session.user_id });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 router.get("/bootcamps", (req, res) => {
     Bootcamp.findAll({
         attributes: ["id", "name"],
@@ -111,7 +141,7 @@ router.get("/bootcamps", (req, res) => {
     })
     .catch(err => {
         console.log(err);
-        res.json(500).json(err);
+        res.status(500).json(err);
     });
 });
 
@@ -147,7 +177,7 @@ router.get("/bootcamp/:id", (req, res) => {
     })
     .catch(err => {
         console.log(err);
-        res.json(500).json(err);
+        res.status(500).json(err);
     });
 });
 
@@ -194,6 +224,10 @@ router.get("/instructor/:id", (req, res) => {
         ]
     })
     .then(dbInstructorData => {
+        if (!dbInstructorData) {
+            res.status(404).json({ message: 'No instructor found with this id' });
+            return;
+        }
         const instructor = dbInstructorData.get({ plain:true });
 
         res.render('single-instructor', {instructor, loggedIn: req.session.loggedIn });

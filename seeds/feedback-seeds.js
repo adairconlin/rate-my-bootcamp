@@ -18,7 +18,7 @@ const feedbackData = [
     {
         review_text: 'Gave great advice for job searching',
         instructor_id: 4,
-        bootcamp_id: null,
+        bootcamp_id: 5,
         user_id: 5,
         rating: 8
     },
@@ -32,7 +32,7 @@ const feedbackData = [
     {
         review_text: 'Very knowledgeable but never let me into the Zoom classes',
         instructor_id: 5,
-        bootcamp_id: null,
+        bootcamp_id: 1,
         user_id: 4,
         rating: 7
     }

@@ -10,12 +10,16 @@
 </head>
 <body>
     <header class="shadow">
+        <nav class="paragraph">
+            {{#if loggedIn}}
+             <a href="/dashboard" class="main-b">Dashboard</a>
+            {{/if}}
+        </nav>
         <a href="/">
             <h1 class="title main-b">Rate My Bootcamp</h1>
         </a>
         <nav class="paragraph">
             {{#if loggedIn}}
-            <a href="/dashboard" class="main-b">Dashboard</a>
             <button class="btn-logout main-b paragraph" id="logout">Logout</button>
             {{else}}
             <a href="/login" class="main-b">Login</a>

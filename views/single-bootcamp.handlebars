@@ -1,24 +1,24 @@
-<article class="single-bootcamp">
-    <div class="title">
-        <a href="/bootcamp/{{id}}" target="_blank">{{bootcamp.name}}</a>
-    </div>
-</article>
+<section class="all-background border shadow">
+    <article>
+        <div class="single-title-div">
+            <a href="/bootcamp/{{id}}" target="_blank" class="title main-b">{{bootcamp.name}}</a>
+        </div>
+    </article>
 
-<div class="feedback">
-    {{#each bootcamp.feedbacks}}
-    <section class="feedback-reviews">
-        <div class="meta">
-        by {{user.username}} on {{created_at}}
-        </div>
-        <div class="review-text">
-            {{review_text}}
-        </div>
-        <div class="rating">
-            {{rating}}
-        </div>
-    </section>
-    {{/each}}
-</div>
+    <div class="feedback">
+        {{#each bootcamp.feedbacks}}
+        <section class="feedback-reviews">
+            <div class="paragraph main-b feedback-text">
+                <div>"{{review_text}}"</div>
+                <div>Rating: {{rating}}/10</div>
+            </div>
+            <div class="meta subtext accent-b">
+            by {{user.username}} on {{created_at}}
+            </div>
+        </section>
+        {{/each}}
+    </div>
+</section>
 
 <!-- check if logged in to leave review -->
 {{#if loggedIn}}

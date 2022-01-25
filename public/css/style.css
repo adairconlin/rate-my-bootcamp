@@ -234,7 +234,7 @@ main {
 .all-background {
     background-color: white;
     margin: 2vw 5.5vw;
-    padding: 1.5vw 2vw;
+    padding: 1.5vw 4vw;
 }
 
 .all-background h3 {
@@ -323,4 +323,16 @@ main {
 
 .edit-feedback button:hover {
     background-color: var(--hover-pink);
+}
+
+/* SINGLE BOOTCAMP/INSTRUCTOR */
+.feedback-reviews {
+    border-top: 3px solid var(--main-purple);
+    padding-top: 1vw;
+    margin-top: 1vw;
+}
+
+.feedback-text {
+    display: flex;
+    justify-content: space-between;
 }

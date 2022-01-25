@@ -185,7 +185,7 @@ router.get("/instructor/:id", (req, res) => {
             },
             {
                 model: Feedback,
-                attributes: ["review_text", "rating"],
+                attributes: ["review_text", "rating", "created_at"],
                 include: {
                     model: User,
                     attributes: ["id", "username"]

@@ -2,11 +2,6 @@
     <div class="title">
         <a href="/bootcamp/{{id}}" target="_blank">{{bootcamp.name}}</a>
     </div>
-<div class="bootcamp-post-info">
-    by {{bootcamp.user.username}} on {{bootcamp.created_at}}
-    |
-    <a href="/bootcamp/{{bootcamp.id}}">{{bootcamp.reviews.length}} comment(s)</a>
-</div>
 </article>
 
 <form class="feedback-form">
@@ -23,7 +18,7 @@
     {{#each bootcamp.feedbacks}}
     <section class="feedback-reviews">
         <div class="meta">
-            {{bootcamp.feedbacks.user.username}} on {{bootcamp.feedbacks.created_at}}
+        by {{user.username}} on {{created_at}}
         </div>
         <div class="review-text">
             {{review_text}}

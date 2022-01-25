@@ -2,11 +2,6 @@
     <div class="title">
         <a href="/instructor/{{id}}" target="_blank">{{instructor.name}}</a>
     </div>
-<div class="instructor-post-info">
-    by {{instructor.user.username}} on {{instructor.created_at}}
-    |
-    <a href="/instructor/{{id}}">{{instructor.feedback.length}} reviews(s)</a>
-</div>
 </article>
 
 <form class="feedback-form">
@@ -23,7 +18,7 @@
     {{#each instructor.feedbacks}}
     <section class="feedback-reviews">
         <div class="meta">
-            {{instructor.feedbacks.user.username}} on {{instructor.feedbacks.created_at}}
+        by {{user.username}} on {{created_at}}
         </div>
         <div class="review-text">
             {{review_text}}

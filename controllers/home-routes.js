@@ -69,7 +69,7 @@ router.get("/", (req, res) => {
         }
         else if (arr[0].bootcamp_id) {
             topBootcamps = arr.filter(bootcamp => {
-                if (bootcamp.avg_camp_rating >= 7) {
+                if (bootcamp.avg_camp_rating >= 8) {
                     return true;
                 }
                 else {
@@ -79,7 +79,7 @@ router.get("/", (req, res) => {
         }
         else {
             topInstructors = arr.filter(instructor => {
-                if (instructor.avg_instructor_rating >= 7) {
+                if (instructor.avg_instructor_rating >= 8) {
                     return true;
                 }
                 else {

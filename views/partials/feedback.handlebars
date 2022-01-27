@@ -1,10 +1,16 @@
 <section class="feedback-meta">
     <div>
         {{#if instructor_id}}
-        <p class="main-b heading-2">{{instructor.name}}</p>
+        <div class="logo-dashboard">
+            <i class="fas fa-chalkboard-teacher paragraph accent-b"></i>
+            <p class="main-b heading-2">{{instructor.name}}</p>
+        </div>
         <p class="accent-b subtext">{{instructor.bootcamp.name}}</p>
         {{else}}
-        <p class="main-b heading-2">{{bootcamp.name}}</p>
+        <div class="logo-dashboard">
+            <i class="fas fa-school paragraph accent-b"></i>
+            <p class="main-b heading-2">{{bootcamp.name}}</p>
+        </div>
         {{/if}}
     </div>
     <p class="main-b paragraph rating border">Rating: {{rating}}/10</p>

@@ -159,14 +159,13 @@ router.get("/bootcamp/:id", (req, res) => {
             {
                 model: Feedback,
                 attributes: ["id", "review_text", "rating", "created_at"],
+                where: {
+                    instructor_id: null
+                },
                 include: {
                     model: User,
                     attributes: ["id", "username"]
                 }
-            },
-            {
-                model: Instructor,
-                attributes: ["id", "name"]
             }
         ]
     })
@@ -213,10 +212,6 @@ router.get("/instructor/:id", (req, res) => {
         },
         include: [
             {
-                model: Bootcamp,
-                attributes: ["id", "name"]
-            },
-            {
                 model: Feedback,
                 attributes: ["review_text", "rating", "created_at"],
                 include: {
@@ -232,6 +227,7 @@ router.get("/instructor/:id", (req, res) => {
             return;
         }
         const instructor = dbInstructorData.get({ plain:true });
+        console.log(instructor);
 
         res.render('single-instructor', {instructor, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
     })

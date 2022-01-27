@@ -266,6 +266,20 @@ main {
     justify-content: space-between;
 }
 
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+.logo i {
+    align-self: center;
+}
+
+.logo h3 {
+    margin-right: 3vw;
+    margin-left: 3vw;
+}
+
 .review-btn {
     background-color: var(--accent-purple);
     padding: 10px 20px;
@@ -317,6 +331,15 @@ main {
 
 .create-btn-spacing {
     justify-content: space-around;
+}
+
+.logo-dashboard {
+    display: flex;
+}
+
+.logo-dashboard i {
+    align-self: center;
+    margin-right: 1vw;
 }
 
 /* EDIT PAGE */

@@ -16,7 +16,10 @@
 
 <section class="top-ten">
     <article class="shadow">
-        <h3 class="main-b heading-2">Top Bootcamps</h3>
+        <div class="logo-dashboard">
+            <i class="fas fa-school main-b heading-2"></i>
+            <h3 class="main-b heading-2">Top Bootcamps</h3>
+        </div>
         <ol>
             {{#each topBootcamps}}
             {{#if bootcamp_id}}
@@ -31,7 +34,10 @@
     </article>
 
     <article class="shadow">
-        <h3 class="main-b heading-2">Top Instructors</h3>
+        <div class="logo-dashboard">
+            <i class="fas fa-chalkboard-teacher heading-2 main-b"></i>
+            <h3 class="main-b heading-2">Top Instructors</h3>
+        </div>
         <ol>
             {{#each topInstructors}}
             {{#if instructor_id}}

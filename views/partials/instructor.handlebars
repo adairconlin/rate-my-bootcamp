@@ -3,10 +3,10 @@
         <p>{{name}}</p>
         {{#if feedbacks}}
         {{#each feedbacks}}
-        <p>Average Rating: {{avg_instructor_rating}}/10</p>
+        <p class="paragraph">Average Rating: {{avg_instructor_rating}}/10</p>
         {{/each}}
         {{else}}
-        <p>Average Rating: Not Applicable</p>
+        <p class="paragraph">Average Rating: Not Applicable</p>
         {{/if}}
     </div>
     <button type="submit" class="review-btn border paragraph">

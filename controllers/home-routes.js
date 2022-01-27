@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { User, Bootcamp, Instructor, Feedback } = require("../models");
-const { Op } = require("Sequelize");
+const { Op } = require("sequelize");
 
 // get all instructors and bootcamps using the feedback model in order to calculate the average of their ratings
 router.get("/", (req, res) => {

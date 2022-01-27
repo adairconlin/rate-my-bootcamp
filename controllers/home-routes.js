@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const { route } = require("express/lib/application");
 const sequelize = require("../config/connection");
 const { User, Bootcamp, Instructor, Feedback } = require("../models");
+const { Op } = require("Sequelize");
 
 // get all instructors and bootcamps using the feedback model in order to calculate the average of their ratings
 router.get("/", (req, res) => {
@@ -13,13 +13,15 @@ router.get("/", (req, res) => {
                 attributes: ["id", "name"]
             }
         ],
-        raw: true,
+        where: {
+            instructor_id: null
+        },
         group: ['Bootcamp.name'],
         order: sequelize.literal(`avg(rating) DESC`)
     })
     .then(dbFeedbackData => {
         if (dbFeedbackData) {
-            setArrays(dbFeedbackData, 1);
+            setArrays(dbFeedbackData.map(feedback => feedback.get({ plain:true })), 1);
         }
     })
     .catch(err => {
@@ -28,7 +30,7 @@ router.get("/", (req, res) => {
     });
 
     Feedback.findAll({
-        attributes: ["Feedback.id", "Feedback.instructor_id", [sequelize.cast(sequelize.fn('AVG', sequelize.col('rating')), 'dec(2,1)'), 'avg_instructor_rating']],
+        attributes: ["id", "instructor_id", [sequelize.cast(sequelize.fn('AVG', sequelize.col('rating')), 'dec(2,1)'), 'avg_instructor_rating']],
         include: [
             {
                 model: Instructor,
@@ -41,12 +43,16 @@ router.get("/", (req, res) => {
                 ]
             }
         ],
-        raw: true,
+        where: {
+            instructor_id: {
+                [Op.ne]: null
+            }
+        },
         group: ['Instructor.name'],
         order: sequelize.literal(`avg(rating) DESC`)
     })
     .then(dbFeedbackData => {
-        setArrays(dbFeedbackData, 2);
+        setArrays(dbFeedbackData.map(feedback => feedback.get({ plain:true })), 2);
     })
     .catch(err => {
         console.log(err);
@@ -111,11 +117,10 @@ router.get("/create-instructor", (req, res) => {
     }
 
     Bootcamp.findAll({
-        attributes: ["id", "name"],
-        raw: true
+        attributes: ["id", "name"]
     })
     .then(dbBootcampData => {
-        const allBootcamps = dbBootcampData;
+        const allBootcamps = dbBootcampData.map(bootcamp => bootcamp.get({ plain: true }));
         res.render('create-instructor', { allBootcamps, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
     })
     .catch(err => {
@@ -171,7 +176,6 @@ router.get("/bootcamp/:id", (req, res) => {
             return;
         }
         const bootcamp = dbBootcampData.get({ plain: true });
-        console.log(bootcamp);
 
         res.render('single-bootcamp', { bootcamp, loggedIn: req.session.loggedIn, user_id: req.session.user_id });
     })

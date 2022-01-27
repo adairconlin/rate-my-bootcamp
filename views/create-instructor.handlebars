@@ -19,7 +19,7 @@
         <label for="bootcamp">Bootcamp:</label>
         <select class="border paragraph main-b" id="bootcamp-list" size=`{{allBootcamps.length}}`>
             {{#each allBootcamps}}
-            <option class="subtext" value="{{id}}">{{name}}</option>
+            <option class="subtext" value={{id}}>{{name}}</option>
             {{/each}}
         </select>
     </div>

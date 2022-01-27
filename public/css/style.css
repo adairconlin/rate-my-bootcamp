@@ -104,20 +104,20 @@ footer {
 }
 
 input, select {
-    border: 4px solid var(--main-blue);
+    border: .3vw solid var(--main-blue);
     padding: 0 1vw;
     width: 100%;
 }
 
 .border {
-    border-radius: 10px;
+    border-radius: .5vw;
 }
 
 .button {
     color: white;
     background-color: var(--accent-purple);
-    border-radius: 15px;
-    padding: .3vw 1vw;
+    border-radius: .5vw;
+    padding: .3vw 1.2vw;
     transition: .5s ease;
 }
 
@@ -152,7 +152,6 @@ main {
 .overlay div {
     width: 70%;
     background-image: linear-gradient(120deg, var(--main-blue), var(--main-purple));
-    border-radius: 10px;
     padding: 50px 20px;
     text-align: center;
     margin: 6vw 4vw;
@@ -167,7 +166,6 @@ main {
 .hero-btn-div button {
     background-color: white;
     padding: 50px 60px;
-    border-radius: 10px;
 }
 
 .hero-btn-div button:hover {
@@ -182,7 +180,6 @@ main {
 .top-ten article {
     background-color: white;
     width: 35%;
-    border-radius: 10px;
     padding: 2vw 3vw;
     margin-top: 5vw;
     margin-bottom: 8vw;
@@ -219,7 +216,6 @@ main {
 
 .login-form, .signup-form {
     background-color: white;
-    border-radius: 10px;
     width: 38%;
     padding: 2vw 3.3vw;
 }
@@ -231,14 +227,12 @@ main {
 }
 
 .login-form input, .signup-form input {
-    border: 4px solid var(--main-blue);
-    border-radius: 10px;
+    border: .3vw solid var(--main-blue);
     padding: 3px 10px;
 }
 .login-form button, .signup-form button {
     background-color: var(--accent-purple);
     width: 80%;
-    border-radius: 10px;
     padding: 10px 20px;
     align-self: center;
 }
@@ -258,7 +252,7 @@ main {
     list-style: none;
     padding-bottom: 2vw;
     margin: 1vw 2vw;
-    border-bottom: 4px solid var(--accent-purple);
+    border-bottom: .3vw solid var(--accent-purple);
 }
 
 .all-background li .info {
@@ -307,13 +301,13 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-top: 4px solid var(--main-purple);
+    border-top: .3vw solid var(--main-purple);
     margin-top: 1.5vw;
     padding-top: 1vw;
 }
 
 .feedback-meta .rating {
-    border: 4px solid var(--main-purple);
+    border: .3vw solid var(--main-purple);
     align-self: end;
     padding: .5vw 3vw;
 }
@@ -356,7 +350,7 @@ main {
 }
 
 .edit-feedback input {
-    border: 4px solid var(--main-purple);
+    border: .3vw solid var(--main-purple);
     padding: .2vw 1.5vw;
 }
 
@@ -376,7 +370,7 @@ main {
 }
 
 .feedback-reviews {
-    border-top: 4px solid var(--main-purple);
+    border-top: .3vw solid var(--main-purple);
     padding-top: 1vw;
     margin-top: 1vw;
 }
@@ -396,7 +390,7 @@ main {
 }
 
 .feedback-form input, .feedback-form textarea {
-    border: 4px solid var(--main-purple);
+    border: .3vw solid var(--main-purple);
     margin: 0 1vw;
     width: 100%;
     padding-left: 10px;

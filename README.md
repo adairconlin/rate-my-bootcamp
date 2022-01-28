@@ -4,7 +4,7 @@
 - [User_Story](#user-Story)
 - [Technologies](#technologies)
 - [Features](#features)
-- [Screenshot_of_Landing_Page](#screenshot-of-landing-page)
+- [Landing Page](#screenshot-of-landing-page)
 
 ## User Story
 - AS someone who is looking for a bootcamp
@@ -34,7 +34,7 @@
 ## Website
 - Application deployed [HERE](https://whispering-scrubland-52233.herokuapp.com/)
 
-## Landing Page
+## Screenshot of Landing Page
 ![Full page screenshot of Rate My Bootcamp](assets/images/full-page-screenshot.png)
 
 ## Contribution

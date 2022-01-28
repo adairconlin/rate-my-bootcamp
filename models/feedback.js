@@ -47,7 +47,8 @@ Feedback.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
-                max: 10
+                max: 10,
+                min: 0
             }
         },
     },

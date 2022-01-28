@@ -1,10 +1,11 @@
 # Rate My Bootcamp
 
 ## Table of Contents
-- [User_Story](#user-Story)
+- [User Story](#user-Story)
 - [Technologies](#technologies)
 - [Features](#features)
 - [Landing Page](#screenshot-of-landing-page)
+- [Contributions](#contribution)
 
 ## User Story
 - AS someone who is looking for a bootcamp
@@ -29,7 +30,7 @@
 - Sign-up and login to leave a review for a bootcamp or instructor
 - Add a bootcamp or add an instructor
 - Able to edit or delete a review
-- See all reviews
+- View all reviews
 
 ## Website
 - Application deployed [HERE](https://whispering-scrubland-52233.herokuapp.com/)

@@ -1,0 +1,58 @@
+<section class="hero-section">
+    <article class="overlay border">
+        <div class="shadow">
+            <h1 class="white heading-1">Your Resource for Informed Reviews</h1>
+            <article class="hero-btn-div">
+                <a href="/bootcamps">
+                    <button class="heading-2 shadow main-b border">View All<br>Bootcamps</button>
+                </a>
+                <a href="/instructors">
+                    <button class="heading-2 shadow main-b border">View All<br>Instructors</button>
+                </a>
+            </article>
+        </div>
+    </article>
+</section>
+
+<section class="top-ten">
+    <article class="shadow border">
+        <div class="logo-dashboard">
+            <i class="fas fa-school main-b heading-2"></i>
+            <h3 class="main-b heading-2">Top Bootcamps</h3>
+        </div>
+        <ol>
+            {{#each topBootcamps}}
+            {{#if bootcamp_id}}
+            <li>
+                <a href="/bootcamp/{{bootcamp_id}}">
+                    <p>{{bootcamp.name}}<br><span class="accent-b">Avg Rating: {{avg_camp_rating}}/10</span></p>
+                </a>
+            </li>
+            {{/if}}
+            {{/each}}
+        </ol>
+    </article>
+
+    <article class="shadow border">
+        <div class="logo-dashboard">
+            <i class="fas fa-chalkboard-teacher heading-2 main-b"></i>
+            <h3 class="main-b heading-2">Top Instructors</h3>
+        </div>
+        <ol>
+            {{#each topInstructors}}
+            {{#if instructor_id}}
+            <li>
+                <a href="instructor/{{instructor_id}}">
+                    <p>{{instructor.name}} - <span class="accent-b">Avg Rating: {{avg_instructor_rating}}/10</span></p>
+                </a>
+                <p class="bootcamp-info">{{instructor.bootcamp.name}}</p>
+            </li>
+            {{/if}}
+            {{/each}}
+        </ol>
+    </article>
+</section>
+
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}

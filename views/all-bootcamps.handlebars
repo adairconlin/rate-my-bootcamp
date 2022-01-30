@@ -1,0 +1,22 @@
+<div class="main-b shadow heading-2 all-background border logo">
+    <i class="fas fa-school"></i>
+    <h3>All Bootcamps</h3>
+    <i class="fas fa-school"></i>
+</div>
+
+<div class="main-b shadow heading-2 all-background border">
+    <ul>
+        {{#each bootcamps as |bootcamp|}}
+        <li>
+            {{> bootcamp bootcamp}}
+        </li>
+        {{/each}}
+    </ul>
+    {{#if loggedIn}}
+    <div class="create">
+        <button class="button paragraph">
+            <a class="white" href="/create-bootcamp">Add A Bootcamp</a>
+        </button>
+    </div>
+    {{/if}}
+</div>

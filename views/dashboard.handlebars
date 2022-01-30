@@ -1,0 +1,27 @@
+<div class="main-b shadow heading-2 all-background border">
+    <h3>Your Dashboard</h3>
+</div>
+
+<div class="all-background border shadow">
+    <div class="create create-btn-spacing">
+        <button class="button paragraph">
+            <a class="white" href="/create-bootcamp">Add A Bootcamp</a>
+        </button>
+        <button class="button paragraph">
+            <a class="white" href="/create-instructor">Add An Instructor</a>
+        </button>
+    </div>
+</div>
+
+<div class="main-b shadow all-background border">
+    <h1 class="heading-2">Your Reviews:</h1>
+    <section class="dash-feedback">
+        {{#each feedback as |feedback|}}
+        
+        {{> feedback feedback}}
+        
+        {{/each}}
+    </section>
+</div>
+
+<script src="/javascript/logout.js"></script>

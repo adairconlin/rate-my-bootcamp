@@ -1,0 +1,55 @@
+<div class="main-b shadow heading-2 all-background border">
+    <h3>Reviews</h3>
+</div>
+
+<section class="all-background border shadow">
+    <article>
+        <div>
+            <div class="logo-dashboard">
+                <i class="fas fa-school heading-2 main-b"></i>
+                <a class="title main-b">{{bootcamp.name}}</a>
+            </div>
+        </div>
+    </article>
+
+    <div class="feedback">
+        {{#each bootcamp.feedbacks}}
+        <section class="feedback-reviews">
+            <div class="paragraph main-b feedback-text">
+                <div>"{{review_text}}"</div>
+                <div>Rating: {{rating}}/10</div>
+            </div>
+            <div class="meta subtext accent-b">
+            by {{user.username}} on {{format_date created_at}}
+            </div>
+        </section>
+        {{/each}}
+    </div>
+</section>
+
+<!-- check if logged in to leave review -->
+{{#if loggedIn}}
+<section class="shadow all-background border">
+    <h3 class="heading-2 main-b review-title">Share your experience!</h3>
+    <form class="feedback-form">
+        <div>
+            <label for="rating" class="paragraph accent-b">Rating: </label>
+            <input name="rating" id="rating" type="number" class="paragraph main-b border" />
+            <p class="paragraph accent-b">/10</p>
+        </div>
+        <div>
+            <label for="review" class="paragraph accent-b">Review (optional):</label>
+            <textarea name="review" id="review" type="text" class="subtext main-b border"></textarea>
+        </div>
+            
+        <div>
+            <p id="user_id">{{user_id}}</p>
+        </div>
+
+        <div>
+            <button type="add-feedback-btn" class="button paragraph">add feedback</button>
+        </div>
+    </form>
+</section>
+<script src="/javascript/add-bootcamp-feedback.js"></script>
+{{/if}}

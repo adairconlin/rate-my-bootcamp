@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate My Bootcamp</title>
+    <link rel="stylesheet" href="https://use.typekit.net/zts3cgs.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/ce5f6d1334.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="shadow">
+        <nav class="paragraph">
+            {{#if loggedIn}}
+             <a href="/dashboard" class="main-b">Dashboard</a>
+            {{/if}}
+        </nav>
+        <a href="/">
+            <h1 class="title main-b">Rate My Bootcamp</h1>
+        </a>
+        <nav class="paragraph">
+            {{#if loggedIn}}
+            <button class="btn-logout main-b paragraph" id="logout">Logout</button>
+            {{else}}
+            <a href="/login" class="main-b">Login</a>
+            {{/if}}
+        </nav>
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
+    <footer class="subtext white">
+        <h4>&copy Sophia, Adair, and Max 2022</h4>
+        <h4>Rate Again Soon!</h4>
+    </footer>
+    
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+</body>
+</html>

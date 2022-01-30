@@ -1,0 +1,22 @@
+<div class="main-b shadow heading-2 all-background border logo">
+    <i class="fas fa-chalkboard-teacher"></i>
+    <h3>All Instructors</h3>
+    <i class="fas fa-chalkboard-teacher"></i>
+</div>
+
+<div class="main-b shadow heading-2 all-background border">
+    <ul>
+        {{#each instructors as |instructor|}}
+        <li>
+            {{> instructor instructor}}
+        </li>
+        {{/each}}
+    </ul>
+    {{#if loggedIn}}
+    <div class="create">
+        <button class="button paragraph">
+            <a class="white" href="/create-instructor">Add An Instructor</a>
+        </button>
+    </div>
+    {{/if}}
+</div>

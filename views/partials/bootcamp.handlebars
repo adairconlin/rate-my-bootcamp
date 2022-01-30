@@ -1,0 +1,15 @@
+<div class="info">
+    <div>
+        <p>{{name}}</p>
+        {{#if feedbacks}}
+        {{#each feedbacks}}
+        <p class="paragraph">Average Rating: {{avg_camp_rating}}/10</p>
+        {{/each}}
+        {{else}}
+        <p class="paragraph">Average Rating: Not Applicable</p>
+        {{/if}}
+    </div>
+    <button type="submit" class="review-btn border paragraph">
+        <a href="/bootcamp/{{id}}" class="white">See All Reviews</a>
+    </button>
+</div>
